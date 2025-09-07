@@ -1,0 +1,1516 @@
+Hash,Message,Hashes of parents,Is a merge commit?,List of modified files
+ec69bb36b43aac9258ff14d4ba0b99ad744eb5c2,Fix fenced code blocks.,e69d779181c8390653aa3dd338167370d2bf6530,False,README.md
+25267a4726365691393ccace8bb9009b2b4ff301,Give more verbose exceptions and examples of the error checking.,5265011b7972bf5627ceef64564a256379a7f102,False,"README.md, __init__.py"
+b7937b119b4bdaa07e5d66cd2d5617ae721073f8,Fixup example to use SecurityGroupRule instead of SecurityGroupIngress.,084128aa24ecec73af805a93f7f8bc4a6d60c04d,False,ELBSample.py
+3c8eb23c7ade6ac1d80a382458a5c9dcca39b7c6,Fix SecurityGroupEgress and SecurityGroupIngress definitions.,b7937b119b4bdaa07e5d66cd2d5617ae721073f8,False,ec2.py
+a455a8a32d4408178e0268446463205b5442af12,Fix pep8 issues,42bd0a495d15b014efdcf1a159ad97a884807179,False,IAM_Policies_SNS_Publish_To_SQS.py
+cffa0cd8bbb452868031cf32a83e59788a506b6c,Fix pyflakes warnings,df6da0acee9a33f495278ae40f51ed3af6d699cd,False,"CloudFront_S3.py, ELBSample.py, ElasticBeanstalk_Python_Sample.py, IAM_Policies_SNS_Publish_To_SQS.py, IAM_Users_Groups_and_Policies.py, RDS_with_DBParameterGroup.py, Route53_CNAME.py, Route53_RoundRobin.py, S3_Bucket.py, S3_Website_Bucket_With_Retain_On_Delete.py, SQS_With_CloudWatch_Alarms.py, WaitObject.py, setup.py, autoscaling.py, cloudformation.py, cloudwatch.py, dynamodb.py, ec2.py, elasticache.py, elasticbeanstalk.py, elasticloadbalancing.py, iam.py, rds.py, sdb.py, sns.py, sqs.py"
+188aa43dbb3c205640be4ce6a491dac00223af15,"Incorporate Will's property type changes
+
+Some of the integer properties were using basestring. Fix these using
+the new utility functions.",9d443d425a6480743c0dcc8b7ccab083ad7f2c68,False,"autoscaling.py, cloudformation.py, cloudfront.py, cloudwatch.py, ec2.py, elasticache.py, elasticloadbalancing.py, iam.py, rds.py, route53.py, sqs.py"
+0297303b1826ba8f1b66dfc9f83a1e1bc91d2b71,Fix CustomGateway -> CustomerGateway,b261a9aba94d6e3088c23aefdb5e22a95152cd85,False,ec2.py
+ac36bfca38c69b85e2e4f6e6cc0c8d2dc425c54e,"Fix VPC security group rule bugs
+
+- Fix bugs with SecurityGroupEgress and SecurityGroupIngress.
+  - They are really only AWSProperty and not AWSObject derivatives.
+  - They were generating bad JSON for VPC security group ingress/egress rules.
+- Added workaround for AWS bug with SecurityGroupEgress rules.
+  - Egress rules targeting a security group do not respect
+     DestinationSecurityGroupId.
+  - You have to use SourceSecurityGroupId to create these types of rules.
+  - Added SourceSecurityGroupId to hash of allowed properties for
+    SecurityGroupEgress.
+  - This is a known AWS bug with EC2/CloudFormation APIs since mid-2012.
+- This is a merge of Will's patch",0297303b1826ba8f1b66dfc9f83a1e1bc91d2b71,False,ec2.py
+7e3aaaf0cfc4e12b9cc72eb857b2d828035a0fe8,Fix pep8 whitespace,8bf1e479f1dd8423613d6eb0f5c78dd78fdc9c67,False,test_basic.py
+d17db180aa5510b7384641d57d2f36391306f4af,Fix Python 3.3 compatibility,2779a2e22575744ea3bb69d7a70b11a15aaa8ecd,False,"test_examples.py, test_util.py"
+ed8fed14a0fa79490f3cbb11957ab7c61d487d31,Fix empty param issue and print a nicer error message,61abce412cebefecc8c0e59826ef34e0e649036b,False,cfn
+759541e545347547f7f04397d7c28a5cfff41d84,"Fix a missed portion of a pull request patch
+
+This patch fixes:
+    Workaround for a bug in CloudFormation and EC2 where the
+    DestinationSecurityGroupId property is ignored causing
+    egress rules targeting a security group to be ignored.
+    Using SourceSecurityGroupId instead works fine even in
+    egress rules. AWS have known about this bug for a while.",ed8fed14a0fa79490f3cbb11957ab7c61d487d31,False,ec2.py
+77e9870a7e0d9f46c296120ed71c82d50b6ca886,Fix Attributes validator for ELB Policies,49e98ff7dee58a971d562d720f7b28c0fc495f71,False,"setup.py, __init__.py, elasticloadbalancing.py"
+c1740ad823d866aa43845e484a5251c07facd8c9,"Fixing due to an error that was in the AWS docs
+
+Working with Amazon support on this - the documentation is wrong, and
+the LoadBalancerPorts argument isn't required.",833419a8d327b118922e69c70858ab00ac13f439,False,elasticloadbalancing.py
+09c4b3751648708d81a0c921a196e47f636cf822,Do not validate AWSHelperFun's (Fix for Issue 8),904718be5fdb7c86819eeabeeb7791b660d711ee,False,"test_basic.py, __init__.py"
+f5fb99ba7d673d990a2fdd61e48667cac2b8860a,"Merge pull request #9 from cloudtools/fix_issue_8
+
+Do not validate AWSHelperFun's (Fix for Issue 8)","904718be5fdb7c86819eeabeeb7791b660d711ee, 09c4b3751648708d81a0c921a196e47f636cf822",True,
+c290bc622507ad5b1321bdcba1d34becbeadbe5a,Fix pyflakes warning,f5fb99ba7d673d990a2fdd61e48667cac2b8860a,False,elasticloadbalancing.py
+93f377e94b6f9ce46e15f474a69eac7098e88472,Fix pep8 warning,c290bc622507ad5b1321bdcba1d34becbeadbe5a,False,autoscaling.py
+e016121a1679524d7913997398a505f5a6affc64,Fix pep8,93f377e94b6f9ce46e15f474a69eac7098e88472,False,test_basic.py
+34945549998162aad0e468dacc95d4188fbf8abc,"Add missing return in integer_range [GH-10]
+
+Add a missing return in interger_range. Thanks @hglynn for the fix.",e016121a1679524d7913997398a505f5a6affc64,False,"test_validators.py, validators.py"
+5d7c4c894f39708e17de265309281493401b82c1,"Fix `type` and `dictname` that are now AWSObject class members, this makes the code more DRY",ac0aae01785caafbcf4742b1e717910c0a91ded1,False,"test_basic.py, __init__.py, autoscaling.py, cloudformation.py, cloudfront.py, cloudwatch.py, dynamodb.py, ec2.py, elasticache.py, elasticbeanstalk.py, elasticloadbalancing.py, iam.py, rds.py, route53.py, s3.py, sdb.py, sns.py, sqs.py"
+e0eed80408cd575e81b86eabe6ff7dd6e876ce73,Fix iam.Policy,2ee4e76de40c50aab833e4c991632d6d09da816f,False,iam.py
+16e9341180aa17c3d7a30769eb72ad6d1779cdff,Fix route53.RecordSet that does not require a `name`,e0eed80408cd575e81b86eabe6ff7dd6e876ce73,False,route53.py
+fe91e3d1163eadaa273fdabe2d4efd3b67b5f716,Fix s3.Bucket constructor,16e9341180aa17c3d7a30769eb72ad6d1779cdff,False,s3.py
+1ea41f91ce8c365579a8ce14a490de0abe556f4d,Fix AWSProperty that should not output a named dict,b8f545eee4335b028b0ab43b7c51225b5919326b,False,__init__.py
+ce8f8167dea0eb476fa2143d50c1ed43a2c2cea1,"Clean up ""required"" error checking and handle property types better",a475288a988af64ba6895554744b2ac38f2ac739,False,__init__.py
+52ef0d9785a08b9fef1164cee94a738a1bb224b8,"Resource property types should not be in a Properties dictionary
+
+A previous change caused resource property types to be put into a
+Properties dictionary. This fixes that regression.",ce8f8167dea0eb476fa2143d50c1ed43a2c2cea1,False,"test_basic.py, __init__.py"
+3865d4591c6eb68d36b06668b3d5eff1c276c154,"Fix Output, Parameter and UpdatePolicy to not output a Properties dict",a77ded43d88de2168505f7829c03efe10f6a96f5,False,"test_basic.py, __init__.py"
+0cea389f1b20138dfd60f9527864fe2dc32eca81,Fix pep8,3865d4591c6eb68d36b06668b3d5eff1c276c154,False,"EC2InstanceSample.py, Route53_A.py"
+a168123251558ce695bbda7bdeb8ae137e562d16,Raise a ValueError if adding a duplicate object to the template,0cea389f1b20138dfd60f9527864fe2dc32eca81,False,"test_basic.py, __init__.py"
+06eda2e8438a5c771be169dfffa1f0267962332b,"Fix Ref() to output the name only [GH-17]
+
+Ref needed to be changed to look for BaseAWSObject.",6b2538b98b04d2e326f3221eb9c41d27f91c769e,False,__init__.py
+5dab30fecc8f4c23f5a2fee77ea6c28e1379bf03,"Fix some IAM issues
+
+- Make Policy property work again
+- Policy prop should be Users, not User
+- Have more explicit error checking with list types",9b59089168ef49fdad3ec80611efbc2124bbdf4c,False,"IAM_Users_snippet.py, iam.py"
+791d4286dc974932c4ac61a7b61a1b0e8d2bd2eb,Fix a pep8 line too long,8f5da43ba04e0bd3e8e7219af60dc19cfb3e7f22,False,__init__.py
+2b5ad64b7f0589c4f2bff0ced261a01569666c93,"Add cfn2py script to convert json templates to Python
+
+This scipt will try to convert a properly formated CloudFormation
+template into Python for use with troposphere. This is a little rough
+right now but will do some of the bulk changes necessary. Additional
+hand-editing fixups may be needed after conversion.",0dc69c6b64879f4468525fd0b7d83b70a3d58215,False,"cfn2py, setup.py"
+7bfc602e506e660ff935e20842508a6f8944e1e8,"Fix examples/VPC_EC2_Instance_With_Multiple_Dynamic_IPAddresses.py
+
+ - introduces ec2.NetworkInterfaceProperty
+ - adds properties to NetworkInterface:
+  - SecondaryPrivateIpAddressCount
+  - NetworkInterfaceId
+  - DeviceIndex
+ - makes SubnetId not required",1bacd642363a12761a817a23b5a19a2134825332,False,ec2.py
+ef3c9642098f83a3d5fdda71019b9c33a7bf2d1d,Fixup some of the network related validators and pep8 changes,37b92cdd13bd9c86b91bac404a8c73c62ebafa53,False,ec2.py
+717a8c11b19e1b831ace4538040ef5613653a9da,Merge branch 'fix_VPC_EC2_Instance' of https://github.com/fungusakafungus/troposphere into fungusakafungus-fix_VPC_EC2_Instance,"30bda5d4a90fed5e0530763d5356796162c5581d, 7bfc602e506e660ff935e20842508a6f8944e1e8",True,
+a860b3e73498420c4e2adc071bf1c854e3b8a6e5,Move resolver.py into __init__.py,012052a5d0d47ed8adf78076576e9faf6e61f156,False,"__init__.py, resolver.py"
+5342851f50c20f8f5771815e2735335e63e845e2,Fix pep8 for test_implicit_ref.py,06dda30701038a658ece0d49460e25d8c1cee22d,False,test_implicit_ref.py
+6a0854763dda410dab6aceeeaec8910b3665a0e8,Fixes for pyflakes,5342851f50c20f8f5771815e2735335e63e845e2,False,"test_basic.py, test_implicit_ref.py"
+889174c77358e69e78635a4af42979a7e940b09c,Fix silly error by copying .travis.yml from awacs,f89ec85e89564debc7ae1bb4e3bbab2c2bf620a9,False,.travis.yml
+9704278bb1c3f36531688930e5aa27ad32b18d97,"Merge remote-tracking branch 'source/master' into fixes
+
+Conflicts:
+	troposphere/__init__.py","1ea41f91ce8c365579a8ce14a490de0abe556f4d, 889174c77358e69e78635a4af42979a7e940b09c",True,
+5a85e2e1a3915f4baae1b1c1a6c959a49e8fc3cd,Fix a tiny pep8 typo,9704278bb1c3f36531688930e5aa27ad32b18d97,False,__init__.py
+e4afd9341ff76e96aee6d60cb9dc7fe739f2e95f,Fix initialization flag test,5a85e2e1a3915f4baae1b1c1a6c959a49e8fc3cd,False,__init__.py
+776f4c2e7c21a1ca63094c6e27034d3e40af996a,Fix test_ELBSample from test_examples,6740ceb68d678eb0694e2740291dfba4e9df1098,False,test_examples.py
+dc95abaa1d8e4f0195c7bbf043ed029a399c2bc6,Fix pep8 errors,776f4c2e7c21a1ca63094c6e27034d3e40af996a,False,test_examples.py
+0c8e80a1503f881c544519e4482de41100ccee29,Fix for python3,dc95abaa1d8e4f0195c7bbf043ed029a399c2bc6,False,test_examples.py
+e7248daf7d6b9ad01bbe0ea9a6d7867077fae98e,Fix unstable order of tags in troposphere.Tags,13200d1b29ec25408f0b35cd3c02ba935729bca2,False,__init__.py
+1805e0239a9043edb6844dd49169eb9806c9f059,Merge branch 'fixes' of https://github.com/jeanphix/troposphere into jeanphix-fixes,"9c877984d1f9175660911d9cac457d6ff87b2754, e4afd9341ff76e96aee6d60cb9dc7fe739f2e95f",True,
+57bef5bcd32e50127c4f7f34ed9e999db76c8db1,Fix pyflakes for [GH-47],1d512b9153dbc41e396b41f62111ea439bb4cfc7,False,ec2.py
+0d5a42c4c5cc8ab0ab94201636c24e41cac8927b,Fix #54 ec2.DHCPOptions NTPservers -> NtpServers,375fce776eb61c4ce5418e83cd44c37c88cf46af,False,"CHANGELOG.md, ec2.py"
+9a85aa3e6807483275514b2c92f1f2814afe2ea2,"Allow Ref() in NetworkInterfaceProperty GroupSet list
+
+This fixes #56 a different way than the pull request.",a53ebefe2442af513cc80ac519532a9b177635a3,False,ec2.py
+abbb86da66d6a4a7c8c301252485ce4aa1d2f056,Fix #51: RecordSets in Route53 not formatted correctly,9a85aa3e6807483275514b2c92f1f2814afe2ea2,False,"Route53_RoundRobin.template, route53.py"
+7d246516b3e79d33126606b79d2c839cf105f958,"Add OpenStack native resource types
+
+We also duplicate the AWS AutoScalingGroup type due to an issue
+with integer/string handling differences between AWS and the
+OpenStack compatibility layer",00f538e1018d68454c5ecc22629e5bd73ccd1556,False,"heat.py, neutron.py, nova.py"
+dec4874ad0143c9759bad91a02d675efea1316a3,Fix our test to reflect the ASG name change,5d7b40eb10bfa227168f8b1f4fbc5b9e233a3122,False,OpenStack_AutoScaling.py
+c1037fde45b144328d88a93adedca2a6e6acb749,Merge branch 'fix-rds-vpc-example' of https://github.com/timmow/troposphere into timmow-fix-rds-vpc-example,"937ace6fa577c4e0b57d1fbc9fc88560186794b5, e3a72e9a3dcf7a9797f879ed9a75e8ef740a63c1",True,
+f7b136ba6cbb1a62415f73c75c45cf135fe46205,Fix pep8 error (due to pep8 1.5.1 change),7a557a5680f6336987a23e9ab4c45e3e95cbd2dd,False,__init__.py
+717f5f16c8cd712f7bb4a8b7710caee6ec381c3c,Minor pep8 E251 fixes in 3 example files,f7b136ba6cbb1a62415f73c75c45cf135fe46205,False,"ElasticBeanstalk_Python_Sample.py, SQS_With_CloudWatch_Alarms.py, WaitObject.py"
+3622170663f6e3cbfaa794b88244696432c2d762,"Fix resource.name backward compatibility regression
+
+Changes around 'name' atrributes were needed of the OpenStack feature.
+This fix restores the use of 'resource.name' for non-OpenStack usage.",717f5f16c8cd712f7bb4a8b7710caee6ec381c3c,False,"test_basic.py, __init__.py"
+ad6bf7ea36fc8e0a2a9b93e7090d9b14c0ad466d,"Allow Ref() in VPNGatewayRoutePropagation RouteTableIds list
+
+This fixes #73 a different way than the pull request.",c7baf93b5c8ddce65cd080178e41146c52ababbe,False,"CHANGELOG.md, ec2.py"
+bd61d76348fa46bf221d715ec9ed1e3f767d8536,"Patching Users class to use basestring or Ref type for Groups and not Groups type.
+See: https://github.com/cloudtools/troposphere/issues/78",89e2d6a744e241e9ccd2e0191cfa1ed3e15a7fe0,False,iam.py
+3ba44e8374e0387145731647166bbe9b296e19d6,Fixed line length issue with pep8.,17d10dbddf772c69025273db79899c303d1feace,False,autoscaling.py
+aee6c3337f32e96cf8adefcba951859b6d627436,Fixed logic issue.,3ba44e8374e0387145731647166bbe9b296e19d6,False,autoscaling.py
+fb85bc29e57a5bb9df38266eb1771fe981a86536,Add CloudFront CacheBehavior (fixes #86),ad82f96c2d9c48b5a3309757471668e490432816,False,cloudfront.py
+a57c35743cca3dfeb236dd410bc2c87669d5cfaf,"Add AutoScalingGroup TerminationPolicies (fix #77, fix #87)",fb85bc29e57a5bb9df38266eb1771fe981a86536,False,autoscaling.py
+352bc81e0e3178cbf9ca2890652357de7bee4ff2,Tweak UpdatePolicy properties (fixes #88),a57c35743cca3dfeb236dd410bc2c87669d5cfaf,False,__init__.py
+b626cd4018f61e7cfbe46fd8706b223d5b66031d,"Tweaks to rds.DNInstance (fixes #89)
+
+- AllocatedStorage and BackupRetentionPeriod are positive_integer
+- Port is network_port
+- Add AllowMajorVersionUpgrade",352bc81e0e3178cbf9ca2890652357de7bee4ff2,False,rds.py
+a2a0e3a269f4a5f47a58c63c7d9a367f85c3223d,Tweaks to EC2 DeviceIndex property values (fixes #90),b626cd4018f61e7cfbe46fd8706b223d5b66031d,False,ec2.py
+5b144e358ecab3da3cda01170871b43aea9cd22d,Fix #92,bac76897d9ed335e9dc8bf169409204e7e6539dd,False,autoscaling.py
+9f4e0c40cb596c3bd9d3ef8447457945d6fee69c,"Merge pull request #103 from jcoleman/fix-opsworks-stack-custom-json
+
+Opworks CustomJson property expects a JSON object not a string.","ef037bfc95b2af2e5663b95ab9d51a9307fa17e2, 5ab184b9bd6b7dfda8259d42a2268bff1c3e6766",True,
+b85fbab9380056c2f430faf5c9207681574565e3,Fix #91,db49f2815e4bdc5364ce6cbb295ddeb6ef36f83f,False,route53.py
+2a2dc64551fe50485617177f3ed36cdf38250ab4,removing whitespace to fix travis.ci build,14dad704a93bbf63c0829072a84b390b3ad6cdff,False,cloudformation.py
+cca0acfb53d19e7ee302ccaaa8dd3941d2a45b4d,Bugfix: Or helper function was not constructing the correct condition,63ab8763886242853b7ae17c3ee7fd3bde8d9dda,False,"EC2Conditions.template, __init__.py"
+8aa3d207d504f8ed2ca4f3b8210f77f645df7d42,Print a nice error if an incorrect property is set on AWSProperty (which doesn't have a 'type').,63ab8763886242853b7ae17c3ee7fd3bde8d9dda,False,__init__.py
+41bf42da4c681fe0a5ef5f98267023ac71bd664b,Fix pep8 error.,1ce31c697db050e36462dcaac54a0ee97ca92056,False,__init__.py
+ff656ad09041c6bba4fa8cf7dd52721fcaf979bd,"Merge pull request #122 from oliviervg1/or_patch
+
+Bugfix: Or helper function was not constructing the correct condition","63ab8763886242853b7ae17c3ee7fd3bde8d9dda, cca0acfb53d19e7ee302ccaaa8dd3941d2a45b4d",True,
+4c8f448098ff2b743d8d2de274c0dd644d9fe149,Add unit tests for 'type' AttributeError fixes.,76f2bbf37e2d266998f8eedf885a3fbfac46bef6,False,test_basic.py
+298564169ec159fa739e36bf5b2fa69c97afede7,Merge branch 'fix-type-attribute-errors' of github.com:jcoleman/troposphere into jcoleman-fix-type-attribute-errors,"94c1a61038d8a99614ddf740b76e676f85389378, 4c8f448098ff2b743d8d2de274c0dd644d9fe149",True,
+f79843a63ba4b8414430c3333d41fef66363fcb4,"Make test python3 compatible
+
+python3's AttributeError doesn't have a 'message'.  Instead you have to
+grab that from the args.  Fortunately python2 has args as well.
+
+Tested in both versions, seems to pass.",298564169ec159fa739e36bf5b2fa69c97afede7,False,test_basic.py
+8b9ac7093e82f708162d37fd347d3a4c4213b63d,"Merge pull request #124 from jcoleman/cloudfront-fixes
+
+Cloudfront fixes","f79843a63ba4b8414430c3333d41fef66363fcb4, 1d048355f570b1d36a4af22893357fc4da0b8f76",True,
+6d4e9bd280eb132fd64ceca850dee3e13a0a8573,"Allow FindInMap to be used with ec2.NetworkInterfaceProperty.GroupSet
+
+Fixes #128. Note: may need to think about how to address this in a
+more generic way instead of specifying on a per-property approach.",4bfd6902058503ee3de130d85eb24613081e2e87,False,ec2.py
+71404d4f7c102c20568abc42f6886f86937ba391,"Fix DBSecurityGroupIngress required props
+
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
+
+You can use one of the following sets of properties:
+1. CIDRIP
+2. EC2-VPC: EC2SecurityGroupId
+3. EC2-Classic: EC2SecurityGroupName AND EC2SecurityGroupOwnerId",24e99cea1594dcddd9b9920ed24cb67676ae7415,False,rds.py
+47d574c941889f278108fb6a186f356b2c7469c3,"Merge pull request #134 from jstrunk/patch-1
+
+Fix DBSecurityGroupIngress required props","24e99cea1594dcddd9b9920ed24cb67676ae7415, 71404d4f7c102c20568abc42f6886f86937ba391",True,
+06afca51de34f9e7abd23204c95433af2c6e730c,Fixing ValueError message to refer the correct package,28732055b294b94de940a72a39edb72ea850a05b,False,cloudformation.py
+928ddc1bd501de8a9cc88731b42e93f18fd6d057,"Merge pull request #135 from robzienert/fix-value-error-msg
+
+Fixing ValueError message to refer the correct package","28732055b294b94de940a72a39edb72ea850a05b, 06afca51de34f9e7abd23204c95433af2c6e730c",True,
+1a1ec05ce9fb48dfbb0362aebbb779e8ba92f3f6,Fixes duplicate key error reporting,ef63069b455ca43fc0d63166e7c3d678ba0838a5,False,__init__.py
+655f8b86e681f040271a165c927a6d36d05e2648,"Merge pull request #145 from shadone/duplicate_key_reporting
+
+Fixes duplicate key error reporting","ef63069b455ca43fc0d63166e7c3d678ba0838a5, 1a1ec05ce9fb48dfbb0362aebbb779e8ba92f3f6",True,
+2fa701c1d090a5df8e839fbeabf41a9b6efa3967,Fix warning in description,1ec0b60bca0c667612add4eab5ca25abe091ce94,False,CloudFront_S3.py
+7068743aef02d883424f2dae93bd671547a9b483,Fix test and corrected minor white space issue,2fa701c1d090a5df8e839fbeabf41a9b6efa3967,False,"CloudFront_S3.py, CloudFront_S3.template"
+b9a9470c2d3dff9f667d4a44545bd93ddfd6cd89,"Merge pull request #148 from ChristopherHackett/patch-1
+
+Fix warning in description","1ec0b60bca0c667612add4eab5ca25abe091ce94, 7068743aef02d883424f2dae93bd671547a9b483",True,
+81f3d8ef505ba115587faea12831636ce25aad07,When detecting invalid resource name print it as part of the error message,b9a9470c2d3dff9f667d4a44545bd93ddfd6cd89,False,__init__.py
+ba79e8f310f1a9b05c5fc5f23450e5a5c23da38f,"Fix tests, remove EOL whitespace",7d9a7124d86939b6219343946464d66cc806209e,False,"CloudFront_S3.template, DynamoDB_Table.template, EC2Conditions.template, EC2InstanceSample.template, ELBSample.template, ElasticBeanstalk_Python_Sample.template, IAM_Policies_SNS_Publish_To_SQS.template, IAM_Users_Groups_and_Policies.template, IAM_Users_snippet.template, Kinesis_Stream.template, OpenStack_AutoScaling.template, OpenStack_Server.template, OpsWorksSnippet.template, RDS_VPC.template, RDS_with_DBParameterGroup.template, Redshift.template, RedshiftClusterInVpc.template, Route53_A.template, Route53_CNAME.template, Route53_RoundRobin.template, S3_Bucket.template, S3_Bucket_With_Versioning.template, S3_Website_Bucket_With_Retain_On_Delete.template, SQSDLQ.template, SQS_With_CloudWatch_Alarms.template, VPC_EC2_Instance_With_Multiple_Dynamic_IPAddresses.template, VPC_With_VPN_Connection.template, WaitObject.template"
+1db70ffcc6d9ce03ab2c5d47fcfe0be6cb3ca2ef,fix pep8,a17aa438bb0d9da3c17a85754f2cd77cd364ce16,False,cloudformation.py
+c8081d95968d1c0934f594d04250c053afccae02,fix test output,1db70ffcc6d9ce03ab2c5d47fcfe0be6cb3ca2ef,False,OpenStack_AutoScaling.template
+d893c4f1ed1f6827b1458c907df1d907fc4e140f,"Merge pull request #153 from iblazevic/metadata_fixes
+
+more metadata options","b01e6e1a2e7c3a6f83eaa643796a89d68abd325f, 7101e664fbb1274fd25a0b8b8a97608d7915d192",True,
+0f490b7adc1efa2c0cbbad5b5daf606acf0fe5fc,"Fixed CreationPolicy
+
+Added AWSAttribute class
+Switched CreationPolicy and UpdatePolicy to use AWS Attribute class
+Added unit tests for CreationPolicy and UpdatePolicy",f9c2b6222df108c3919fdcf15b42dbc6f7ab3eeb,False,"test_policies.py, __init__.py, policies.py"
+dacaaea8c326ed4353f3c51cc949335322f1b809,"Merge pull request #160 from robzienert/feature/policies
+
+Fix CreationPolicy support","f9c2b6222df108c3919fdcf15b42dbc6f7ab3eeb, 0f490b7adc1efa2c0cbbad5b5daf606acf0fe5fc",True,
+f5fcef94867338dfd4973d8c32759fe19277493f,Clean up pep8/flake8 errors,676044cecb4959653bb03534531ef746ce667160,False,"DynamoDB_Table.py, DynamoDB_Table_With_GlobalSecondaryIndex.py, dynamodb.py"
+6b5e2e921798daa0849f65fd2c5bfe85e057722d,Fix python 3 issue,0afb21ccb50a71163f2ef444392785d3f70f2e4c,False,DynamoDB_Table_With_GlobalSecondaryIndex.py
+a16965b5e157456ea5aa218a0293aad61cf5c602,"Merge pull request #170 from cloudtools/landscape
+
+Fix some issues found by landscape.io","f1db719910a99a40fbaf1d6d6d148f0f6cbd5cd2, 45a11dd150dc5b03dc65c186675add83ed0e32f3",True,
+ff60832912f79a4a32ea5131e07469600969eeb6,Fixing UpdatePolicy validation,5f159d781d3c6a42a541889637ccbae346ac0681,False,"Autoscaling.py, test_basic.py, test_policies.py, autoscaling.py"
+411a327f33cae0b21712a11f747d223d6183e825,"Fixes #158
+
+Makes InstanceId and LaunchConfigurationName mutually exclusive, and
+conditionally requires one or the other.
+
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-instanceid",5f159d781d3c6a42a541889637ccbae346ac0681,False,autoscaling.py
+af784bd557935f3c7102cec22f2f2967e5b2ae25,"Merge pull request #174 from cloudtools/gh-158
+
+Fixes #158","5f159d781d3c6a42a541889637ccbae346ac0681, 2f563b264a4cc131a531f2fd2ab445abb0f3cd8d",True,
+a81bb7c9c35454e1a0ae876cfa5f35c75f7bc272,Merge branch 'fix-update-policy' of https://github.com/robzienert/troposphere into gh-173,"af784bd557935f3c7102cec22f2f2967e5b2ae25, ff60832912f79a4a32ea5131e07469600969eeb6",True,
+cea3dca7a097316629b5669ce6168eee2564edcb,PEP8 fix,5456c266b09442375de46a26c4ed498bda64e4d7,False,__init__.py
+c49ddf82963ceebad8ecbd56f68ba190fb929629,"Merge pull request #179 from mbrossard/helper-list-fix
+
+Support AWS helper functions in lists during validation","13edb3a102c1db2f152f6e5d47e20983ee337dc4, cea3dca7a097316629b5669ce6168eee2564edcb",True,
+3485ce3d385c1f06c1795e3d596ec0c52d181754,Fixing RedshiftClusterInVpc example; incorrect SG setup,7da59f86646da67bc5f934f1b80d4937fd3791ed,False,"RedshiftClusterInVpc.py, RedshiftClusterInVpc.template"
+3379827a48ca6b99be861831f6b97473259c4e70,"Merge pull request #186 from robzienert/gh-107
+
+Fixing RedshiftClusterInVpc example; incorrect SG setup","7da59f86646da67bc5f934f1b80d4937fd3791ed, 3485ce3d385c1f06c1795e3d596ec0c52d181754",True,
+1ea802bb6a203df8e0f81ffc1fdbbec0e634aa4a,"Fix inconsitencies with ElasticBeanstalk API
+
+Things changed, a bunch it seems.  This is not done - as well as
+changing the API, they got rid of the python example template entirely,
+so we'll need to write an entirely new template.  Ugh.",b19454cac8513b98c7730a43295c21aeb0adf30f,False,elasticbeanstalk.py
+ffb6fcf0b1b84c0ffa60f0dc2f88a28ab2c9f7f5,"Use correct IAM policy type
+
+Was using the Property, not the Resource, which broke.  Fixed, updated
+the example output.",b529bb39b2d92b4770e9becc4ce6901e9aa53fd3,False,"ElasticBeanstalk_Nodejs_Sample.py, ElasticBeanstalk_Nodejs_Sample.template"
+07d2a3bc738f2b54ecc293bade4da28c985f9148,"Merge pull request #214 from cloudtools/fix_iam_policy_property
+
+Clear up Policy Resource vs Policy Property","95379c1bef3a01c6a424e55b0012d4c904dc98c8, 7c792abab5335b42880083cbcfb36092462d1fba",True,
+50f7d2421754c8712462b5422c6bfbd23a47d12c,"Add interim MinimumProtocolVersion to CloudFront ViewerCertificate
+
+Fixes #218",9938fa98d03154fd2ee5750552e52e96ecdfe7a9,False,"CHANGELOG.md, cloudfront.py"
+a7d8ec706d629daace14a98703a06798fba680cb,"Fix DBInstance constraints in order to allow the creation of RDS read-only replicas.
+ - Based on (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier) BackupRetentionPeriod, DBName, MasterUsername, MasterUserPassword, PreferredBackupWindow, MultiAZ and DBSnapshotIdentifier can't be present when SourceDBInstanceIdentifier is specified.
+ - Although CloudFormation validator doesn't fail, manual tests have proven that DBSubnetGroupName can't be present if SourceDBInstanceIdentifier is specified.",50f7d2421754c8712462b5422c6bfbd23a47d12c,False,"test_rds.py, rds.py"
+02ef36ffe5d75e54fb963496bd263632ec110728,Fix pep8 errors,a7d8ec706d629daace14a98703a06798fba680cb,False,"test_rds.py, rds.py"
+2d96c1e7ec0c936467387e622bec31591a5abf60,Fix typo,02ef36ffe5d75e54fb963496bd263632ec110728,False,rds.py
+0ea34aebf22e384dbb51a805ce0f6d0f27ddb111,Fix tests my making the order of invalid_properties deterministic,2d96c1e7ec0c936467387e622bec31591a5abf60,False,"test_rds.py, rds.py"
+b98c0b8f5c23e1949c152f5e3d5dea97d9eac003,"Merge pull request #221 from jorgebastida/bug/rds-replicas
+
+Fix DBInstance constraints in order to allow the creation of RDS read-only replicas","eda9f7c2d236c3b8e81d6b6648c9cae1d7e3e52b, 0ea34aebf22e384dbb51a805ce0f6d0f27ddb111",True,
+b6a1890508b0fb031cf91935260544a08080fe42,Fix Ref import,7030b51da6f899eb25ed2103ba8d1be171f9a5a8,False,rds.py
+267fd9a76a3092132b158d90b49a98f53ab552df,"examples fix: users is list
+
+this brings the example in line with
+https://s3.amazonaws.com/cloudformation-templates-us-east-1/IAM_Users_Groups_and_Policies.template",b14cca3572cdb1719875be069c6cce6eb72d94d9,False,"IAM_Users_Groups_and_Policies.py, IAM_Users_Groups_and_Policies.template"
+51189266800e64c03b9781194fa5070616f87302,"Merge pull request #237 from alexlo03/alexlo03/users_fix
+
+examples fix: users is list","b14cca3572cdb1719875be069c6cce6eb72d94d9, 267fd9a76a3092132b158d90b49a98f53ab552df",True,
+e47347271766e1b38ee2cd0310af964623e3ea56,"Merge pull request #230 from pas256/sns-topic-fix
+
+SNS Topic fields are not required","cdac5d9ed4ebc16ab5fd8fb90c995966b5c07be0, 9ab25f55cac40f1b235bf2da8da5d145498690f7",True,
+e70727705041f66313824a304df61fb407c03445,"Fix incorrect Instance README example
+
+Fixes GH-235",a02c9d98ef1d7b6640242f4ac52702e182b42eac,False,README.rst
+8e7cfdd3e04ed41b5409b3c72a28ba3928d03ce9,"Merge pull request #239 from cloudtools/GH-235
+
+Fix incorrect Instance README example","b2afba968d3d7bba7f86e1a0eb3b61d1ac5465bd, e70727705041f66313824a304df61fb407c03445",True,
+0824f9ac552d992e3c36f1ed73c911c40412c958,"Merge pull request #238 from sbraverman/fixPrivateIpAddresses
+
+Creates PrivateIpAddressSpecification for PrivateIpAddresses within NetworkInterfaceProperty","8e7cfdd3e04ed41b5409b3c72a28ba3928d03ce9, 64419f175fb43e0b96f0c759c7e679df62771144",True,
+f546fcd52824d627a3488ff95225c85e25b85ccd,Return the volume_type in validate_volume_type (fixes #245),5ec03a9efff3961e0424e576397488669c7fee9c,False,opsworks.py
+0ad9496fca427cce10bb6bbea4c659d7d227ebcf,"Merge pull request #247 from sbraverman/fixPrivateIpAddresses
+
+Adds additional import for PrivateIpAddressSpecification","f546fcd52824d627a3488ff95225c85e25b85ccd, fd37fa23824004675b515311e71a73d94c7a1623",True,
+e886e4565d08259a0b03e2da2718dee7611c947e,Fixed the regex to be DNS name compliant and enhanced testing,2058d77a8421cc67f3ab2cb82f51b1535b6febde,False,"test_validators.py, validators.py"
+5744ffb69ea90859671050de41aa69830d8cfe45,Address pep8 issues,7a41d364890398f90ff45ec687d43331789ffdd6,False,test_int_type.py
+5dbab7266ee53c9754c20afe4898330166942dba,"Merge pull request #253 from obiwanakin/patch-1
+
+Fixing Opsworks Naming","e94139950f07806ea157c6a72ef1eb440da0b356, 729a59db566e8fe7b8b7a370e67f61f418c69b7c",True,
+3ca3b552348980d35ef9a014b187fdd10c8a0e75,"allow extending classes + tests
+
+fixes #233
+
+this should allow one to use class hierarchies to remove redundant
+definition of properties in similar resources",5dbab7266ee53c9754c20afe4898330166942dba,False,"ClassExtensions.py, ClassExtensions.template, __init__.py"
+95c65a9c55f5701f31996905780b0c164cc31e76,fixes to pep8 compliance,3ca3b552348980d35ef9a014b187fdd10c8a0e75,False,ClassExtensions.py
+5f139347e2ea39f69599072b65be79e96b9f69ff,Fix formatting,499391a6a1360937c90f44450a5998ef16b806f7,False,ec2.py
+fafeb961f4c1578dd7d3218ca4e3bc20129095f1,"Merge pull request #262 from philtay/fix
+
+Minor improvements and fixes","42521caa94f8376bd822a81c86d736cd6a540d56, a1957fb04118ce13f2cb37a52bc93718eed0ae41",True,
+4d3329b8eb2b784dddbcff00efdb2400f72a2aae,Fix examples due to IAM User LoginProfile change,fc152e8512cbc30a972c4cc51090d7b119c21bbe,False,"IAM_Users_Groups_and_Policies.py, IAM_Users_snippet.py"
+58266d84f0b012b65b8cfa48b5e5ecc28e15afb3,Fix #286: rename lambda->awslambda,eabc01d5917273b14b4dbfade589f23d46baab35,False,"test_awslambda.py, awslambda.py"
+96223494086d6422449d375d97e8527ce1f8b536,Fix for OptioGroupConfigurations issue #274,58266d84f0b012b65b8cfa48b5e5ecc28e15afb3,False,"test_rds.py, rds.py"
+6a4757937260b25821fed3c1271716d058b4ff3c,Fix: Unable to pass Cluster name as String #281,96b7657fbdc7a0fdc0478ab8ac84a8568f64d677,False,"test_ecs.py, ecs.py"
+f677adecf6358a3658200bfc5958b854e40eaf9a,Implement the template Metadata section (Issue #286),431901ae7627374f2b4db5d4cbfcddf1deff202d,False,"Metadata.py, Metadata.template, __init__.py"
+6fcba58fad02ef53fa356c1815451545f00b1bf9,fix pep8 compliance,7f296ae99ec98d260deb47091eacaf70aa852e34,False,elasticache.py
+09c8f96dcb55dce6651cdbb8857ac621c56c90eb,Fix my bad logic,3c7547c10680791eae4bff80e6ada54bb3fe03e9,False,__init__.py
+fcca1c45198f0c8dd512669477e89dd10d62a059,Fix python3 test issue,62f931421556dd98d7509829dbabdf36c4773d51,False,test_rds.py
+b56e96ecd5f7b073ab4cf4af95c8f6a463329e0b,Fix Ref/GetAtt issue w/ DBInstance,0164877188a74e79bb21f32ea9a968ddaf1854c6,False,rds.py
+455f8a34eeb872f46019582e0d252bdd2fc1b8a0,"Merge pull request #310 from cloudtools/deal_with_ref_iops
+
+Fix Ref/GetAtt issue w/ DBInstance","0164877188a74e79bb21f32ea9a968ddaf1854c6, b56e96ecd5f7b073ab4cf4af95c8f6a463329e0b",True,
+b1a78dea88f61627c2c4aafe9961f9a136de49d0,"Gives more info about type errors
+
+This lets you figure out what resource you were working on when the
+issue popped up.",906a8a8ae1f919654950c20f02eca2dc06f21b6c,False,__init__.py
+895dad447b88a3bb2c138bbcf0f6aaa487454f2a,"Merge pull request #312 from cloudtools/better_type_error_messages
+
+Gives more info about type errors","906a8a8ae1f919654950c20f02eca2dc06f21b6c, b1a78dea88f61627c2c4aafe9961f9a136de49d0",True,
+e0c3fc045093bd226256af9a51f9911b792436dd,Improve opsworks validation - fixes #319,ba9e45e1c9e2338e4d87bd28754484b9130e8e64,False,"test_opsworks.py, opsworks.py"
+09c4c3c5133f3bfc0e56a6508456bf8e77741d5e,Add AWS::Lambda to supported resource types - resolves #313,e0c3fc045093bd226256af9a51f9911b792436dd,False,README.rst
+33e5918333a4a88265470570286960c87a05b4bc,Fix RDS validation with conditional parameters #320,09c4c3c5133f3bfc0e56a6508456bf8e77741d5e,False,"test_rds.py, rds.py"
+04bfedde5a1e9a6691370b023fda2d3cdfe8a313,"Merge pull request #322 from cloudtools/markpeek-rds-fixes
+
+Fix RDS validation with conditional parameters #320","09c4c3c5133f3bfc0e56a6508456bf8e77741d5e, 00cc328c8c4c55ca129f1dd66c7d93f2e1c305fd",True,
+9a000e3cf3a9c034d6b0263723fc6f0578be7193,Apply PEP8 checks fixes,bc71b44314bb97f8c7cdc29c66d9565b87629ef9,False,ElastiCacheRedis.py
+f1cdaf98ce16f84fa0d33bcd1ce1619318620fef,"Merge pull request #324 from micahhausler/bugfix/postgreslicense
+
+Added postgresql-license. Closes #323","e4c9bb4bf8817f900b23f9592b8cc0671d9e8e9a, 60a559aa1f711a843d5f6f6ab60eeb27b411569e",True,
+df056d1afc41cb23d77099afef0dc8f5fa12bc3d,Add AWS::EC2::SpotFleet (Resolves #330),39465763e1cf42d681623051f18ae2bf737a08e8,False,ec2.py
+7bc4269c010dbfe6340cf8def846735d7a0f2198,"Merge pull request #333 from zdot/fix/deployment_group
+
+DeploymentGroup expects resource_type AWS::CodeDeploy::DeploymentGroup","4717a2dd3242c8de4cfff6c48b79606533527367, 29aaa44fbae07703df3fd5f96954f519e7cf516d",True,
+b72a44f848954f7fbb726a8f2327a5526ea8482b,Fix #328: Make Ref() work with datapipeline.ObjectField.RefValue,68ac1569fa636d0126fe4b471a0d69cd849186e9,False,datapipeline.py
+978cd9f997210e17a99b4e87c62fd2fdbddad264,pyflakes fix,b72a44f848954f7fbb726a8f2327a5526ea8482b,False,datapipeline.py
+ee9e74760482baffac9cda72de2d62184d4a4ded,"Merge pull request #337 from slikk66/issue/336
+
+change definition to list to match cloudformation","dc8d031925b59554c31c2aad902186a480a3c558, ab719fd8eaa9080daa628dbddf445318d0d4f41d",True,
+ab1edc90e1f15053b3eeec26281012f82d4c5284,Fix #341: RDS::DBCluster change AvailabilityZone to AvailabilityZones,3a2ec0d6746fddda525af6bf83c8bec6e3690941,False,rds.py
+adc3f8823e4eb871fb870ab182ede7de2b68ee76,fixed pep8 issues,0c4ffc2ecbc1d84a627548d1cd72f1093a2a93d0,False,"CodePipeline.py, codepipeline.py"
+b443bc84cc3a3ab64d70151e3fa4df36a2b38552,another pep8 fix,adc3f8823e4eb871fb870ab182ede7de2b68ee76,False,CodePipeline.py
+7dff8d54f5d3ea2676a6f827a5f4ba2246b768c0,"Merge pull request #360 from slikk66/issue/359
+
+add in properties for max, default","1014e8bf899e71bb8df95decd80d77b16219e5b8, 04338a35c74aa7afb6fdfe89248282b0e28baadf",True,
+7fe5fa82ad09b592d8957c1baf4f2111a5687a3f,Fix #361: Allow RDS iops to be 0,7dff8d54f5d3ea2676a6f827a5f4ba2246b768c0,False,"test_rds.py, rds.py"
+77320c91cf86589df0f1e861d1a273d251f4f127,Fix #354 Only discard 'Properties' in JSONrepr,829d5e107166cf9198f3f803c27c459cc6c10de9,False,"test_loggroup.py, __init__.py"
+87267fc6d98efc7f8582bc475bc788f3f168aac3,Fix #342: ECS LoadBalancerName property is a string,913fd9d26237598c3a7a0ef2e3a1eb3d72edadb5,False,ecs.py
+b8a6dae436c54ed62f0428ccadbf0e7f0da4caf2,"Fix #369: Add back support for Python 2.6.9
+
+The use of a dictionary comprehension in #354 caused support for Python 2.6.9
+to be dropped. This change converts it into a simple iteration. Note: while it
+would be ideal to add travis support to prevent further regressions the amount
+of change in the tests is prohibitive at this time. Python 2.6.9 support is
+""best effort"" for now.",52c6709cd2f762c588d6f2fa9ceffd971bc5a385,False,__init__.py
+1077d108f9a28e504438119d6447e7ae6368edb5,Resolve #314: Add lambda example,b8a6dae436c54ed62f0428ccadbf0e7f0da4caf2,False,"lambda.py, lambda.template"
+dc8abd5c9a57c92f9d53a74a1deec92248f2034b,"Give more info on func validator failures
+
+Not sure how best to test this - open to any suggestions.  Also not a
+huge fan of the way I'm giving the info, but can't think of a better way
+without breaking any previous use that already handled errors in a
+particular way.",33bef1e04eba73661d7f3bb4a23b4f2de7079130,False,__init__.py
+c53b0f36a491735b3ebfe580c4f88406beaf08fc,Fix #386: Remove RDS IOPS upper bound,86c605d648256f503835b3d68522ea0152b4fd12,False,"test_rds.py, rds.py"
+9d2ae8510da50b4c373d96696f68c7f91919486c,Merge branch 'master' into better_error_on_func_validator_failure,"dc8abd5c9a57c92f9d53a74a1deec92248f2034b, c53b0f36a491735b3ebfe580c4f88406beaf08fc",True,
+affd1f3c177361f3e449c7ce23446446a79b6333,Fix #387: Add Tags to ElastiCache::CacheCluster,c53b0f36a491735b3ebfe580c4f88406beaf08fc,False,elasticache.py
+7a3119f152c36a401139b2407a3a29f7ccaacca3,fix pep8 errors,67714f6c143f60f94bf35ccc48074f33e4f90e4a,False,"test_validators.py, iam.py, validators.py"
+6b0470b5590e6af1c14ad39ce14e21fb12b76637,Fix link,a65404b90cd346bc93b849cdc5c85a927e252447,False,README.rst
+2fe14d96d9746ce552c8ad3b99debc7ace1e6fac,"Merge pull request #385 from cloudtools/better_error_on_func_validator_failure
+
+Give more info on func validator failures","3fc602b199705939a371d07ed3e262d61edc7677, 9d2ae8510da50b4c373d96696f68c7f91919486c",True,
+a055afa8e58fac7c261b61d54d8d1e806107562e,"Use location constants for creating bucket
+
+`create_bucket` requires `location` parameter to be a constant from
+`boto.s3.connection.Location` and there is no `us-east-1` or
+`eu-west-1`, only empty string or `EU`.
+
+It should fix #408.",2fe14d96d9746ce552c8ad3b99debc7ace1e6fac,False,cfn
+9e40070ad4d275bb1566180962ca050a3527023b,"Logs SubscriptionFilter
+
+Hi,
+
+From the doc: 
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html
+
+    An IAM role that grants CloudWatch Logs permission to put data into the specified Amazon Kinesis stream. For Lambda and CloudWatch Logs destinations, don't specify this property because CloudWatch Logs gets the necessary permissions from the destination resource.
+
+    Required: No
+
+    Type: String
+
+    Update requires: Replacement
+
+
+AWS::Logs::SubscriptionFilter RoleArn is mandatory in the library but not on AWS and gives you an error:  destinationArn for vendor lambda cannot be used with roleArn",47cc47ae9f8fc9e933eb1d52df04efc0dc6d2c9b,False,logs.py
+d73bd39a885e83e6c2956f1cc4798c425af25413,"Fix `ecs.TaskDefinition.Volumes`
+
+Was incorrectly flagged as required, see:
+http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html",82fac646320dc663732d25a4338b41aac1f6825e,False,ecs.py
+fe72f7d3f7b0711a22173c1240134173aafef574,"Merge pull request #422 from jeanphix/ecs-task-definition-volumes-fix
+
+Fix `ecs.TaskDefinition.Volumes` that was incorrectly flagged as required","24d9869c7902dc8e24a211e7512ff63fa528c3d9, d73bd39a885e83e6c2956f1cc4798c425af25413",True,
+e83415f0933fc757e5969553dd48e7768ad56e61,"Allow both GetAtt and a basestring.
+
+Fix #438",49ef3e16dd30ad1cda77428a3fd861efd38943f0,False,awslambda.py
+e84f27e6f3ca07446f745801c12fa9eed1982259,"Removing GetAtt from import
+
+Fix #438",e83415f0933fc757e5969553dd48e7768ad56e61,False,awslambda.py
+ff3e5c2ee7ae71b3fedcf28ea70c0f03a18fdaa7,"Fixed ConfigSnapshotDeliveryProperties type
+
+Fixing DeliveryChannel ConfigSnapshotDeliveryProperties type",9d504b5f62153c8b5381e8f02dd0e88d9870253e,False,config.py
+d29aa62d1d8e7fcc5f1708f712eceb5a3e35ca4d,"Ignore If expression during validation of ASG
+
+Fixes #445.",6646f84562d21a99a028fce000d86e264b2c95c0,False,autoscaling.py
+64239318bda9d46c4aa7e50e710ec023eaca7f1f,Add test and tweak fix for ASG MaxSize If fix #446,d29aa62d1d8e7fcc5f1708f712eceb5a3e35ca4d,False,"test_asg.py, autoscaling.py"
+f5eeaa5881339073dae6ffab7ce5c4090636729f,"Adding support for EMR resources
+
+* Initial files for EMR support
+
+* Adding some tests for EMR types
+
+* Reformatting the file
+
+* Adding a basic sample of an EMR Cluster plus the expected template
+
+* Fixing formatting
+
+* Fixing print syntax
+
+* Adding model for ScriptBootstrapActions
+
+* Adding configuration properties to the cluster
+
+* Using helper function for colon-separated key-value pair lists.
+
+* Fixing formatting
+
+* Setting a type for the configuration list in instance group resource
+
+* Added additional validators and aligned fixed test template
+
+* Added a Test step into the test template.
+
+* Initial files for EMR support
+
+* Adding some tests for EMR types
+
+* Reformatting the file
+
+* Adding a basic sample of an EMR Cluster plus the expected template
+
+* Fixing formatting
+
+* Fixing print syntax
+
+* Adding model for ScriptBootstrapActions
+
+* Adding configuration properties to the cluster
+
+* Using helper function for colon-separated key-value pair lists.
+
+* Fixing formatting
+
+* Setting a type for the configuration list in instance group resource
+
+* Added additional validators and aligned fixed test template
+
+* Added a Test step into the test template.
+
+* Update validators for security groups and instance count
+
+* Move StepProperties to the appropiate type
+
+* Fix the type for Application args and add step properties to the test template",64239318bda9d46c4aa7e50e710ec023eaca7f1f,False,"EMR_Cluster.py, EMR_Cluster.template, emr.py"
+33aedb8ab400d54da326eb5e5e83e9790fd1214c,"Import JSON Templates (#468)
+
+This new Template subclass makes it possible to import most Cloudformation templates as JSON and parse them as Troposphere objects. This is different from cfn2py in that it's not trying to write actual python code, but rather instantiate the actual objects without the need to edit it afterwards.
+
+There are probably a few tropo-specific AWSHelperFns that won't be parsed correctly, but the ones included in the tests/examples_output are all supported. I believe an effort should be done to normalize the helper functions into something discoverable with a consistent use - but I have yet to really ponder on that issue.",c977e0df5455c7280dc0049e0be10b37bf367965,False,"Autoscaling.py, test_examples_template_generator.py, __init__.py, cloudformation.py, emr.py, s3.py, template_generator.py"
+7037c723305a9ad8f60a610969b3e6982bcd5020,Fix Elasticsarch Domain object naming,33aedb8ab400d54da326eb5e5e83e9790fd1214c,False,"ElasticsearchDomain.py, elasticsearch.py"
+9ee07504aa1da4f1ea63d6046acecedb58dd3236,"Fix Source object to take a list of SourceDetails (#469)
+
+The documentation is unclear but the example (and my testing) shows that this is the correct syntax
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html#cfn-config-configrule-source",344b2e177d61cf4d99e15dcb9aec9f56f49489ab,False,config.py
+6afee75579b2e69d342499f990cf6b98e21a08e3,Fix Bucket AccessControl to allow Ref (#475),8c52961c12975d87c758beef4b4b1e551dfa5221,False,s3.py
+e70d0716b7b50d849e4f9f7e0ebfd33328400ae4,Fix baseclass for AWS::Logs::Destination (Fixes #481),c75f4e2186bc06385cfbad98101e5163aeee581e,False,logs.py
+5548d43addc20ae47328c3cb11a071fb1fa50b10,Force pyflakes to 1.1.0 pending a fix to 1.2.0,d6edf51347a24c058ca4ac67f14f0ea64dd797c0,False,.travis.yml
+4c071a3ad72a0a159f266525eae95498a42fe79e,Remove duplicate waf FieldToMatch class (fixes #489),2a9edaa93b0fb7b51dd504d02591658ee6265538,False,waf.py
+675e726a159536cd50c602ee16c1a92ea5a7e664,fix attribute for ApiKey (Enable -> Enabled) (#492),4c071a3ad72a0a159f266525eae95498a42fe79e,False,"ApiGateway.py, ApiGateway.template, apigateway.py"
+b250a312fb54a38462f7f03fdd4ce390f595110f,waf XssMatchTuple should be an AWSProperty (Fixes #498),b21dc3da5824e5e52deb08780942e7cae9bc0639,False,waf.py
+3bc4bc7e8cb822d21ae3cecc0acb38aa83f03b12,"EMR: fix EBS configuration (#497)
+
+* EMR: change EBS configuration (moved from Cluster to InstanceGroupConfigProperty)
+* Fix EMR_Cluster example (cloudformation stack now succeeds, but EMR step fails because of obviously unexisting S3 bucket in my account)",7bf2c7436adb1608e0680861b69c27bfc4572e98,False,"README.rst, EMR_Cluster.py, EMR_Cluster.template, emr.py"
+438b1ae2b67e9432d5f7dc82933699394acda6ef,"Action on Failure Fix (#501)
+
+The documentation lies, here's the error message I just got from CloudFormation:
+""CloudFormation currently only supports long-running clusters, set ActionOnFailure to CANCEL_AND_WAIT or CONTINUE""",3bc4bc7e8cb822d21ae3cecc0acb38aa83f03b12,False,emr.py
+d28d60a075efe403019c6b18219362e4129a8ca3,"Allow setting a different region for S3 upload (#491)
+
+* Allow setting a different region for S3 upload
+* Maintain backwards compatibility by setting s3region to region if not specified
+* Fix help statement default for s3 region to be us-east-1 instead of None",438b1ae2b67e9432d5f7dc82933699394acda6ef,False,cfn
+446d717e4ef8399f1c1b0beeee4ddae845bd2953,Fix rename pep8->pycodestyle and bump to fixed pyflakes (#522),c1591131efc5ae4a9c3e7eeb6f5b512b03a087f8,False,".travis.yml, CONTRIBUTE.md, requirements.txt"
+4c0374ef1a7339aa3c61db7d550d3ac16800a033,Fix badges,7991b11125dd3d40811d7afbab984113754841ed,False,README.rst
+776bdd234293cb48b186bb1720dcedb7723ee61b,"Rewritten the helper to be more flexible (#502)
+
+The default is now """", which reflects the most used use-case. Fixes #465.",4c0374ef1a7339aa3c61db7d550d3ac16800a033,False,"test_userdata.py, userdata.py"
+2a1dd6db6d0347911984bfa32a397fb23a72def1,"add `AutoScalingReplacingUpdate` to `UpdatePolicy` (#513)
+
+- add `AutoScalingReplacingUpdate` to `UpdatePolicy`
+- Fixes #511",43b792b23ade90d4de4f67979f73eaa6f80fb3b8,False,"Autoscaling.py, Autoscaling.template, policies.py"
+d4d0cee4bdf103b2a204bd3e4ff1e207aeaef3e4,"Emr configurations values: also allow AWS helper functions (#516)
+
+* Added parameter to dynamically choose between spot and on-demand instances
+
+* Fixed EMR configuration properties validator: both strings and helper functions are allowed by cloudformation
+
+* Prevent lines with more than 79 characters to make Travis CI happy
+
+* Fixed EMR configuration properties validator: both strings and helper functions are allowed by cloudformation",7bef2fdb674378ba56f7d099b73a29abb56359e9,False,"EMR_Cluster.py, EMR_Cluster.template, emr.py"
+c921332d019b7ef3c789a9b7b7f293b2b6b8b89a,"Fix AssociationParameters Value type to list of strings (#518)
+
+According to
+http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html,
+the SsmAssociations AssociationParameters Value is a list of strings,
+not a string. This was causing instance creation failure on templates
+attempting to use SsmAssociations.",d4d0cee4bdf103b2a204bd3e4ff1e207aeaef3e4,False,ec2.py
+f119464d83eb73f75295432c22757f7f99c15af6,Update fields in apigateway StageDescription (Fixes #521),c921332d019b7ef3c789a9b7b7f293b2b6b8b89a,False,apigateway.py
+5bb92cc6b8f9e2d633e6d7c3cd3503b9b2cee358,"Allows MultiAZ=false with AvailabilityZone in rds (#524)
+
+* Allows MultiAZ=false with AvailabilityZone in rds Fixes #523
+* Add a few more tests",4c73735932e7d1010666a6b7dd27999fbf30e2c3,False,"test_rds.py, rds.py"
+2dd5848a315804e2f7cf9845ba8a7bb0b1271ad2,Remove double S from S3ObjectVersion (fixes #530) (#531),c170064dcc03c04cc927dd56b6356b8a30ea66d8,False,awslambda.py
+dbaf3f321b89f8c87755b6b6d81d096c952f7ed2,"Fix TemplateGenerator import logic. (#533)
+
+* Fix TemplateGenerator import logic.
+
+template_generator.py was incorrectly invoking pkgutil.walk_packages,
+passing in the filepath directly rather than as a list of paths. By
+coincidence, this resulted in the current directory being processed
+instead, which allowed the tests to accidentally pass.
+
+Fixes #532
+
+* Fix Template Generator more cleanly.
+
+Rather than iterate over all packages in the modules directory, just
+iterate over the troposphere directory instead.
+
+* Remove string startwith 'troposphere' check.",8ef17267dcad7aa8e84add700e937d77d034f786,False,template_generator.py
+d1da138781e1e25ebb47cb3c0a0d6a75af0c86d7,"adding new application loadbalancer objects and properties, following AWS announcement https://a… (#544)
+
+* adding new objects and properties, followingAWS announcment https://aws.amazon.com/blogs/aws/new-aws-application-load-balancer/
+
+* moved application load balancer resources to a separate module, following discussion
+
+* adding new property to AWS::AutoScaling::AutoScalingGroup tu allow targetting the new application load balancers
+
+* adding some tests for the new application elb objects
+
+* fixing inconsistent cloudformation output vs sample python code
+
+* mixed some resources names",473a73746fd2a04dc426fd2cb3f182cf1be939c4,False,"ApplicationELB.py, ApplicationELB.template, autoscaling.py, elasticloadbalancingv2.py"
+05194d6cc31f0a2c95b14b633ee8c961c32e76d1,Add TargetGroupArn and fix ContainerPort (#549),57394e637707493ecd6c39fe237b5b7d5597812e,False,ecs.py
+67609fd4d6acab9f9beae85a017486f53195b21b,"Add support for AutoScalingCreationPolicy (#552)
+
+Resolves #551",d6fa2c401f573170c1c465ad4648fba5a743d728,False,"test_policies.py, policies.py"
+702c0e2503dbe7f201fd73c8d121d9d6b766e260,WAF SizeContraint needs to be an AWSProperty (Fixes #561),7916460f978b9da5aa23f1f602fcb4f2ad3ca2c0,False,waf.py
+3774511449b3cf46f89ec3d88c8ca611abb37d13,Add Alias object to KMS (fixes #568),c36edf5e3b6fc2732d094bd07bd5dbcc4c9dd8ad,False,kms.py
+19177ff31a07eb4910c5a7975edcf2830d64ed88,"RDS DBInstance Engine required even when DBSnapshotIdentifier is set (#583)
+
+* Fixes #581
+* Update to verify engine later in the process
+* Update patch according to recommendations",70e463e0f72a483cdb7f9b4e4b76763cf4ff51b2,False,rds.py
+f80b1c906b71d7673a2362b4542613b35322a39b,Resource updates for 2016-10-06 changes (Fixes #584),51cf7f46f160c1e649f3e29887e2d0bea520d22f,False,"apigateway.py, ec2.py, rds.py"
+c5cf9b1fbed69e0eb6f28f01b79a80a5a8c2077c,Add AWS::ApiGateway::UsagePlan (fixes #585),f80b1c906b71d7673a2362b4542613b35322a39b,False,apigateway.py
+a3632e99afa0a6d33a1d4e4914d27c065f6dce73,Add AWS::CodeCommit::Repository (fixes #586),93a71eee693c61c5e1000d6943fdfa07d6272443,False,"test_codecommit.py, codecommit.py"
+2ddc190f6cc612ddb666b00d08e0e1ff30338f55,"Allow HelperFn in UpdatePolicy for ASG (#588)
+
+If you tried to use an AWSHelperFn object in an UpdatePolicy for an ASG,
+you would run into issues because of the extra validation.  This
+disables the extra validation whenever the UpdatePolicy is an
+AWSHelperFn, which is in line with the way troposphere usually handles
+these things.",a3632e99afa0a6d33a1d4e4914d27c065f6dce73,False,"test_asg.py, autoscaling.py"
+c969cd97bfc923ee4ad0f5d67523a180798aed8d,Fix codecommit test file,2ddc190f6cc612ddb666b00d08e0e1ff30338f55,False,codecommit.py
+6985304c81ed1eab69e539257a46231cd6c02393,"add support for `Fn::Sub` (#582)
+
+* add support for `Fn::Sub``
+* fixes #577",44882b436626a2a7fd9e3b026ca91c768e407e9a,False,"test_basic.py, __init__.py"
+63f778c177b2a2ca545a73cecf162bce788fc6c4,Fixes the case where you have a list of non BaseAWSObjects (#589),2ad1aa5a523f3a44ea8a3baa9790075ee6c9ce52,False,"test_dict.py, __init__.py"
+61ae14cba8b784e127fe5279672fa876c90ceb40,Fix typo in CHANGELOG,986c5081b567809fdff887539d1795751c6ceb26,False,CHANGELOG.md
+a509b864088dfb1de8ea8b2a6197920138796517,"Include resource title in required attr exception
+
+Based on helping with this issue:
+http://stackoverflow.com/questions/40118794/dynamically-create-n-number-of-ec2-instances-with-troposphere/40122167?noredirect=1#comment67537659_40122167
+
+Now, if a resource is missing a required attribute, and that resource
+has a title, we'll include it in the exception.
+
+ValueError: Resource ImageId required in type AWS::EC2::Instance
+
+vs
+
+ValueError: Resource ImageId required in type AWS::EC2::Instance (title: MyInstance)",fb18f60247fecb68c1c9f99dad74dd698b756b37,False,__init__.py
+6eceb6bdb4128a72b890214e80410824d3476b17,"Remove `title` validation. Fixes #428 (#605)
+
+The title specified in troposphere is not the actual physical resource name and should be validated as such.",f61b5d76e2e9852fc2c17aa5a6cf3d6e44b40bdd,False,iam.py
+d1f2359a98e01a20c053e28af2ac6b87518c0322,"Fix typo in Example Allowed Values (#603)
+
+* Fix typo in Allowed Values
+
+was mode not node
+
+* Fix Other Typo in Allowed Values
+
+same thing mode -> node
+
+* Add typo fix to test template",6eceb6bdb4128a72b890214e80410824d3476b17,False,"Redshift.py, Redshift.template"
+ee0b60b47aad5fa57d724e8b0132dff3b7b5e2fc,"Flake8 issue, line to long",a239d27a0e460492d86adbc8c256eec03169745a,False,test_validators.py
+9b55342afe7a2f14cb126f49441fb19a8d514470,Expand validation tests for elb_name. Fix regex to match tests,ee0b60b47aad5fa57d724e8b0132dff3b7b5e2fc,False,"test_validators.py, validators.py"
+6040cf815f26bdc038d25cc4cd8160a91c064547,Back out workaround for pycodestyle 2.1.0 (fixed in 2.2.0),c03b18c8f3237ceab60d4f7b1d4da777046eea09,False,NatGateway.py
+7486171ac53f17d5f6cbdbbacc6812579ee77014,Merge branch 'master' into better_required_attribute_error,"c6ce76ee024bf805a88c91f202cf7463ae1ad5b3, 6040cf815f26bdc038d25cc4cd8160a91c064547",True,
+7e6899acc34a18aff8e30913f3583e17e4644f01,"Merge pull request #597 from cloudtools/better_required_attribute_error
+
+Include resource title in required attr exception","6040cf815f26bdc038d25cc4cd8160a91c064547, 7486171ac53f17d5f6cbdbbacc6812579ee77014",True,
+98c8558e88f82dce2388931ec039f0d1490a7dc7,"Fixed missing add_resource in example Cloudwatch rule (#629)
+
+* Fixed missing add_resource in example Cloudwatch rule, which wasnt outputting to json",63a406b286e9f510610db47ce26b3264217a365e,False,"CloudWatchEventsSample.py, CloudWatchEventsSample.template"
+c0088fdd35fb0538081f5e307ce2741f77a9a132,Fix pycodestyle issues with examples/Lambda.py,7b26f07158dc8e3546b65b19782d6a9173f75c1f,False,Lambda.py
+6e385515cc792ea5048cc7edd009f1ad9e58dc54,"Extra validation (#635)
+
+Added validation for parameters, and for reaching max resources on a template. Fixes #634",7da50d8f3f8d0bd3994d1fc026a374f9fe2ff99e,False,"test_parameters.py, test_template.py, __init__.py"
+510f683502e731f53f2a063a251f640d7461ca2e,"Allow HelperFN w/ autoscaling policies (#654)
+
+* Allow HelperFN w/ autoscaling policies Fixes #653
+* Also updated some test names to make them more explicit.
+* Add test for HelperFn w/ AutoScalingRollingUpdate",faf53402c0c9795782a92e29005b6be172f3e8d8,False,"test_asg.py, test_policies.py, autoscaling.py"
+d18f8ff090597447d09038a03be471c21f1712c3,Fix pycodestyle by using an explicit exception type,120cddff463579ac5957c02f4a6e025e74003df2,False,"test_basic.py, __init__.py"
+b0e67037eee24bc90c99acbcf6ae7561b3c85163,Add more details to pycodestyle errors for travis runs,d18f8ff090597447d09038a03be471c21f1712c3,False,.travis.yml
+03c3f5131e05365c285c64be26ea017e1c7cda47,Fix validator function exception test,b0e67037eee24bc90c99acbcf6ae7561b3c85163,False,test_basic.py
+bfeb54d4c3805042ffd3165d34111ecb6fc39585,Remove limit check on conditions - Fixes #657,03c3f5131e05365c285c64be26ea017e1c7cda47,False,__init__.py
+24398390931b710c91a6833b30b2d22aa25ae309,"Fix ApiGateway.py sample (#666)
+
+Correct the ApiGateway sample code so the stack is being created correctly now (original one raises errors during creation).",b3cfcba33325467897e67c56abb263062aa8abdf,False,"ApiGateway.py, ApiGateway.template"
+2be8909f3e7a30cd9a14c75f727110dff196c44c,SSM Targets - fix spelling mistake (Value => Values) (#673),ce86f905453ed60c6c9e4a997ccaab1598abe6d8,False,ssm.py
+34846a5bd0207569dd7d32b57356716addd848b4,"Do json validation on ApiGateway::Model Schema (Fix #679) (#681)
+
+Allow both a string and dict for the ApiGateway::Model Schema.
+The string form is checked for a valid json string and the dict
+form is converted into a json string.",2be8909f3e7a30cd9a14c75f727110dff196c44c,False,"test_apigateway.py, apigateway.py"
+9dcf5e0b30141641a0e182257b34720bcf07d730,Fix typo in S3_Bucket_With_Versioning_And_Lifecycle_Rules.py (#693),efeca741d8185bb3949e7f0cb34a6182536d9522,False,S3_Bucket_With_Versioning_And_Lifecycle_Rules.py
+efb3795f4989a02aac2453042440f4a453973e5f,Fix typo in S3_Bucket.py example (#696),60b0ea19c325f962388f014808afe5ad1cf719a7,False,"S3_Bucket.py, S3_Bucket.template"
+8cabd6f4398ead60b3125a0ecd069ff0e8b8918b,Add ManagedPolicyName to AWS::IAM::ManagedPolicy (Fixes #714),efb3795f4989a02aac2453042440f4a453973e5f,False,iam.py
+994be5d2a95b4f82c800affb51e97e22dfc6423e,Add better validations for Parameter Default types (Fixes #717),3bc7ef98936b4a5308b7de14014e65e800a9c04a,False,"test_basic.py, __init__.py"
+88807a3860044e95d55ce5d8b8b010750141d9b6,"Add WAFRegional support (#723)
+
+* Add WAFRegional support.
+* Add WAFRegional version of WAF sample.
+* Fixes #721",994be5d2a95b4f82c800affb51e97e22dfc6423e,False,"WAF_Regional_Common_Attacks_Sample.py, WAF_Regional_Common_Attacks_Sample.template, wafregional.py"
+413e391cc04357b15af52d72f9337f43ab709d6b,fix for ElastiCacheRedis.py example to use awacs (#725),88807a3860044e95d55ce5d8b8b010750141d9b6,False,"ElastiCacheRedis.py, ElastiCacheRedis.template"
+123459478943e57affab4901277fa5032f3c032d,"Fix/issue 726 emr autoscaling (#729)
+
+* Add EMR AutoScalingPolicy support",413e391cc04357b15af52d72f9337f43ab709d6b,False,"EMR_Cluster.py, EMR_Cluster.template, test_emr.py, emr.py"
+b1137cce431dd7ef5002448bbc975723f5272a37,EMR change: Dimension to MetricDimension plus a couple fixups,123459478943e57affab4901277fa5032f3c032d,False,"EMR_Cluster.py, test_emr.py, emr.py"
+36fa6c1dd05e0ef9d3af7920d83226c98253cb32,Add AWS::Cognito (fixes #720),b1137cce431dd7ef5002448bbc975723f5272a37,False,cognito.py
+779ba85f7e1577e16161a26da480c9b892541471,Fix NamespaceType typo in codebuild::Artifacts() (fixes #701),36fa6c1dd05e0ef9d3af7920d83226c98253cb32,False,codebuild.py
+39ab2e7e09dcf0b45bcb0145fb0f8364dfc8ff84,"Raise ValueError for Outputs and Mappings - Fix Issue #732 (#733)
+
+* Added test cases for testing maximum outputs and maximum mappings
+* Added exceptions when Maximum Outputs >= 60 or Maximum Mappings >= 100
+* Added MAX_ variables and cleaned up hard coded values for the four MAX_ test cases",cac81c62f591ac0cc25547ef4491fbf5f0831f50,False,"test_template.py, __init__.py"
+67edaeff77563e7eabdae08e8711bbd2641a5b9f,Output yaml (to_yaml) using cfn_flip (Fixes #567),d4bb0e5f075a4253ac1a3c7143aec9857d642393,False,"setup.py, test_yaml.py, __init__.py"
+f263b9e09b29ddc47c9f03e147125278a4fb665c,Fix pycodestyle issue in tests/test_yaml.py,67edaeff77563e7eabdae08e8711bbd2641a5b9f,False,test_yaml.py
+b44d4e40124f1a1dd583a524848538c97f81ce65,"EFS DependsOn Ref to object fix (#746)
+
+* Updated DependsOn call to use more pythonic DependsOn vs Ref()
+* removed title argument in favor of the positional argument for naming a resource",9a84f720788b0f4d008e56aec8f2addfc048c01c,False,"EFS.py, EFS.template"
+d7c661b25d720702bd6259835a8c140cfa8a2cef,Fixed UsagePlan example to proper Ref (#755),9d73576d3db997c6c078a4478c87763f1ae4a0e8,False,"ApiGateway.py, ApiGateway.template"
+a6c44e9aff5003e25e8536091bb468ab50ccd0b5,Fix cognito StringAttributeConstraints property names (Fixes #756),d7c661b25d720702bd6259835a8c140cfa8a2cef,False,cognito.py
+416eab5a759bb9359aed22b1d528be678b8b7573,Raise TypeError when a scaler AWSHelperFn is used in a list context (#751),a6c44e9aff5003e25e8536091bb468ab50ccd0b5,False,"test_basic.py, __init__.py"
+1890cd1a8826142d3ab9fb31e08c89b1277c52ac,Make it easier to get at hidden attributes (Fixes #760),f4a351fb25215b8e65eba4a37c8fd5646a374490,False,"test_basic.py, __init__.py"
+122e9d33f2ef8e4d72104f84b2208618c7a98387,Add AWS::CloudWatch::Dashboard (Fixes #763),3a3004a183fd0d70e57b9c9d1b92763b2962d09e,False,cloudwatch.py
+52d24e0d9b7ee19d1c879f00e94ed0cdce912ed6,"Special case If during parameter checking (Fixes #772)
+
+The If conditional can return any variety of types including both scalers
+and lists. This change special cases it against a stricter list check.",61fe618163d659b53611b9b0fe18328028126a24,False,"test_basic.py, __init__.py"
+5cd715e904aec0effd351a789706cf5f017b1e89,Handle SQS QueueName using an AWSHelperFn (Fixes #773),52d24e0d9b7ee19d1c879f00e94ed0cdce912ed6,False,"test_sqs.py, sqs.py"
+5ba7856a3f0d1eb9a9aee6413ff32d93ac222154,"Revert ""Fix pycodestyle issue in tests/test_yaml.py""
+
+This reverts commit f263b9e09b29ddc47c9f03e147125278a4fb665c.",3b78644106368c195399477f2e47552f4497bd0d,False,test_yaml.py
+27cae6009f5134e7daa20ff5ff2828cf7f9fd6a1,"Revert ""Output yaml (to_yaml) using cfn_flip (Fixes #567)""
+
+This reverts commit 67edaeff77563e7eabdae08e8711bbd2641a5b9f.",5ba7856a3f0d1eb9a9aee6413ff32d93ac222154,False,"setup.py, test_yaml.py, __init__.py"
+f8c4aaf1350860db38e506283f7de19b6372667f,"Revert ""Special case If during parameter checking (Fixes #772)""
+
+This reverts commit 52d24e0d9b7ee19d1c879f00e94ed0cdce912ed6.",27cae6009f5134e7daa20ff5ff2828cf7f9fd6a1,False,"test_basic.py, __init__.py"
+99fd7a4a26a54410dc9ad8a8ea1c74598e9e888d,"Revert ""Raise TypeError when a scaler AWSHelperFn is used in a list context (#751)""
+
+This reverts commit 416eab5a759bb9359aed22b1d528be678b8b7573.",f8c4aaf1350860db38e506283f7de19b6372667f,False,"test_basic.py, __init__.py"
+ac181b035219438e64e23178c7ac9307ebbf394f,"Add support for EFS encryption (#789)
+
+* Add support for EFS encryption
+* Fix 2to3 behavior",8a3e590236bb6b32e83b3699117c285fe3392cde,False,".travis.yml, efs.py"
+c4d693752861564daa270b8b710fb8a5ab62bab9,"[Issue-795] VPC expansion support (#797)
+
+* Added the `CidrBlock` property to VPCCidrBlock to support adding
+  a second CIDR block to a VPC",7d2e31b905e535994e6b1d55ab46f1bef932b989,False,ec2.py
+fcaa9674018ee5cb7ffadef4a44b7321b64935d6,Fix typos in examples/DynamoDB_Table.py (#807),1b31aa6d0a96479f88dfa95e67ce3668e7c09329,False,"DynamoDB_Table.py, DynamoDB_Table.template"
+9ff3e3c5076ff60ea2016e0fb7b3c7287a1de462,Fix spelling error  to  in RedshiftVPC example (#811),89766217306b3a104dc7e105020caba725fd1e2f,False,"RedshiftClusterInVpc.py, RedshiftClusterInVpc.template"
+10b106cc03e97edc6d0d271a224baf7e043c17d5,Add S3 Bucket MetricsConfiguration and fix TagFilter spelling,922d404ce87a3aa55bde64dc90dd82e952b4929f,False,s3.py
+d7c7076b48d490851e29192077e9ff2a98789452,Rename AWS_DOMAINSUFFIX to AWS_URL_SUFFIX,10b106cc03e97edc6d0d271a224baf7e043c17d5,False,__init__.py
+4bdf6c770331e7d3d955f09b1950cdbdf4174454,"Add S3 Transfer Acceleration to AWS::S3::Bucket (#833)
+
+* Add S3 Transfer Acceleration to AWS::S3::Bucket
+
+* Fix style issues
+
+* Add tests for AccelerateConfiguration
+
+* Use a custom validator to validate s3 transfer acceleration status values",334ca16b5ead9e3eb30939f3397c1bc6a4353729,False,"S3_Bucket_With_AccelerateConfiguration.py, S3_Bucket_With_AccelerateConfiguration.template, test_basic.py, s3.py, validators.py"
+3badea5d04a439208f1d67095c1df53f72d7c91f,"Events target (fixes #830) (#840)
+
+* Add `Event::Rule::Target::InputTransformer`
+* Add `Event::Rule::Target::KinesisParameters`
+* Add `Event::Rule::Target::RunCommandParameters`",d4d7e6782d37ba81573c30f94d4c77a6fd0902d3,False,events.py
+d412aa255795ae55418a3cdeb32c65d615dc1674,"Fixes RecordColumns cardinality for InputSchema and ReferenceSchema (#859)
+
+Both InputSchema[0] and ReferenceSchema[1] should be a list of RecordColumn
+instead of a RecordColumns
+
+[0]: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputschema.html
+[1]: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-referenceschema.html",a37f205fad3eb1ddba929678a77a6499fc501fef,False,analytics.py
+ebadab4557cb817ef3e6e8ec8daa3d8abcfde04a,"Fixes ApplicationOutput/Output cardinality (#863)
+
+The Output[0] property should be an object instead of a list of objects.
+The official documentation is not clear about this but creating an
+ApplicationOutput with a list of Output objects will fail with the message:
+
+Property validation failure: [Value of property {/Output} does not match type {Object}]
+
+while creating an ApplicationOutput with an Ouput object will succeed.
+
+[0]: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html",d412aa255795ae55418a3cdeb32c65d615dc1674,False,analytics.py
+9a549d4e6e273b5dfb4837834dbfc918f8d1bcb3,Fixes incorrect class definition. (#877),25b7edc73931086568469337c94dfc13c78a14f6,False,ssm.py
+0ed3fe09c7ad736b70750d1644fae7300f2b8f94,Output yaml (to_yaml) using cfn_flip (Fixes #567),929e663c3fbfbe7b0eab59404c4e3936916a3c0c,False,"setup.py, test_yaml.py, __init__.py"
+4af80beb5b89326bc0734b0d994c60143f5ed4b1,"Fix SSM NotificationConfig validator type (#930)
+
+The validator can't be enclosed in a list type and it also expects to validate a list of items.",8003a8094e059fd4ae214231a71b2d081597521f,False,ssm.py
+3f6334dfaf24c91739ec2fc43ec2466431f19f3f,"Fix SQS::Queue validation in the case of no QueueName specified (#931)
+
+Fix validation failure for fifo queues in the case that no QueueName is specified.  Note that Cloudformation *does* now automatically give a QueueName ending with .fifo in this case, contrary to the comment on PR #757.",4af80beb5b89326bc0734b0d994c60143f5ed4b1,False,"test_sqs.py, sqs.py"
+2f7f1245df0a16b51c7d9c3995e68eeba56b6e00,Typo fix in examples/ElastiCacheRedis.py (#926),3f6334dfaf24c91739ec2fc43ec2466431f19f3f,False,"ElastiCacheRedis.py, ElastiCacheRedis.template"
+97087072cadebf2c95582b1e2db10cf0e6ed4839,"Add resource_type value and unit tests for guardduty `AWSObject`s (#945)
+
+Unit tests confirm construction of these objects and ensure that the
+`Type` field is set properly in the output dict to prevent regressions.
+
+Fixes #944",fa3f88111246a791750b0b04870d12e00f0fef12,False,"test_guardduty.py, guardduty.py"
+3a0da4ca0a3b9d65d87e47fdec64498b9e8eb31e,Fixes the lifecyclepolicy problem reported at Issue #953 (#954),6385ccd00c5b188d6b449b814a3e445798e98397,False,ecr.py
+73f25147d31490ce7c28fa29660a50c66e591f9e,"Correct type in API Gateway GatewayResponse type (#950)
+
+Fixes #949",183776ebc8fe9b71fe82791f06b0480c92faf71a,False,apigateway.py
+90f3c14f2af2e4e1eb9851bd8da45cbaa09d5530,"Add long form parameter to to_yaml (#972)
+
+currently, troposphere to_yaml function will by default use the short form.  This causes tag issue.  cfn_flip already has the option to turn on the long form, so this should be passed through so that it can be used in troposphere.",bef6d6ba6eca19f44dbd073df823b4198f4e549e,False,__init__.py
+d8d7d7bd38e2a28b5a4ed4ff05d3c5302f00b66a,Properly handle list objects used with DependsOn (Fixes #982),8482227291f7816bca65ce5556f804104a63c3d2,False,"test_basic.py, __init__.py"
+77b08955ed6f052165bb37d97dda257a8eaff104,"ApiGateway::DomainName CertificateArn fix (#996)
+
+- Remove CertificateArn requirement from ApiGateway:DomainName to deploy
+ApiGateway REGION deployment w/ssl",7073a5cea941d833a89a555f1af557d9f99966e0,False,apigateway.py
+6134d4ed1f71aa090030bf83a97aa790ca1d7ee2,Change GetCidr to Cidr (Fixes #1013),00bc33b14fa72fbb48e02bba1cf97ef49fef9cd8,False,"test_basic.py, __init__.py"
+c19bc8373805d98d22f0ad543dcf9a60a5f2d21c,Add missing OpsWorks::Instance properties (Fixes #1014),6134d4ed1f71aa090030bf83a97aa790ca1d7ee2,False,opsworks.py
+c1c4490c2508e1762b15b4a5eef9ad32d9704298,"Fix AutoScalingRole in EMR: Fixes #984 (#1036)
+
+* Fix AutoScalingRole in EMR: Fixes #984
+
+changed to
+python emr.py | grep EMR_AutoScaling_DefaultRole
+                ""AutoScalingRole"": ""EMR_AutoScaling_DefaultRole"",
+
+from
+
+python emr.py | grep EMR_AutoScaling_DefaultRole
+                    ""Ref"": ""EMR_AutoScaling_DefaultRole""
+
+* Update test to reflect new example",d5496c993251fcf14de59dbba9c96f6144deedb1,False,"EMR_Cluster.py, EMR_Cluster.template"
+8b1cae663ddfa8a8588fbaabcac3b04da2466c26,"Update to cfn-flip 1.0.2 (#1003)
+
+cfn-flip 1.0.2 fixes the issue where zero-prefixed strings are not quoted which confuses the CloudFormation service",661e68a184f4a7a87b84d0f6b004863fa8e3ce3a,False,setup.py
+01af6f50ddf9d65bcb59fea200c154842e7e3dc5,"Allow multiple NoValue properties in mutually_exclusive (#1050)
+
+* Allow multiple NoValue properties in mutually_exclusive
+
+mutually_exclusive ignores the value of properties, only looking at
+whether or not they are defined. This causes a bug where you cannot
+have two mutually exclusive properties, even if the value of those
+properties is AWS::NoValue, which is allowed by cloudformation.",88b9666ce5e74ad63cd9ebb1907bdca7619826af,False,"test_validators.py, validators.py"
+8e2b9b4835f5aea77c338462e0aa49902446ac55,"Release 2.2.2 (#1051)
+
+* Release 2.2.2
+
+* Fix unintentional sarch/replace error",01af6f50ddf9d65bcb59fea200c154842e7e3dc5,False,"CHANGELOG.md, setup.py, __init__.py"
+c4cc249e1a20b9221a4067fcd84350c5a73cd923,Fix use of to_yaml long_form parameter (#1055),596d97546c346fea37da1304ab84d12dc4ad150d,False,__init__.py
+740a09d9cd6dff6cf269bfb42e6358003286f3c8,Fix casing of CreditSpecification CpuCredits (#1068),2b149fd29e3264506e7ffa2781bc207ed9ed440a,False,ec2.py
+6d9cb3e48757387605f5caedee4a317f6a20fd3a,Fix CPUCredits casing and implement LaunchTemplateCreditSpecification class (#1100),ee0f2766b49a512c97897ea42ed36a893d44a246,False,ec2.py
+b5daf41c54821119ee6d354aaedd85b9a27062bb,"Made S3 Prefix in Firehose optional (#1102)
+
+`Prefix` is optional for `S3Configuration`, `S3DestinationConfiguration`, and `ExtendedS3DestinationConfiguration`.",35bdfbf4825aa277f2eb2d65dd3a09af89a8ebaf,False,firehose.py
+bc04cfe9fb6490264a143f3677d06fbfc8ef1528,Prefix is still required in ExtendedS3DestinationConfiguration,b5daf41c54821119ee6d354aaedd85b9a27062bb,False,firehose.py
+4bb3c6d690b51d790893cba55604dd2e1d1b499b,Fix missing boolean import in sns,3a5d8819d6ffb4f712a0903ad06d18ebfcce4c5a,False,sns.py
+a0f3b6b9cabcf6e4c4e3024b1df4a82f4c8a5ab5,"Fix amazonmq missing properties (#1143)
+
+* added missing properties ""SecurityGroups"" and ""SubnetIds"" to amazonmq.Broker",6198e5bd114a9b64d8530610fb36e1af94a2d0c6,False,amazonmq.py
+f865566f86d8301ab45222bc56fe8760e08fe2f5,"Fix AutoScalingRollingUpdate validation failure (#1148)
+
+* Add test for AutoScalingRollingUpdate validation, add test demonstrating issue with false validation failures
+* Allow AutoScalingRollingUpdate.MinInstancesInService to be unspecified in validator (it defaults to 0)",c01b0a07e696364f7c1865d5d19b892e8975ed38,False,"test_asg.py, autoscaling.py"
+6c77536445af282139cc8374047ed204c517d715,"Add new properties to ServiceRegistry (#1172)
+
+* Add two new properties:
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
+
+* Fix order of new attributes",91dc3b5f8916b96ead45783c58d24ce7305c1701,False,ecs.py
+5c07a52c568016f38ea60f79a7c0f217c5626e4d,"Fix issues with CanaraySettings properties (#1181)
+
+* Fix issues with CanaraySettings properties
+
+For some reason 3 different properties of the CanarySettings type were
+added to ApiGateway:
+
+AWS::ApiGateway::Deployment.DeploymentCanarySettings (3 properties)
+- Deployment::DeploymentCanarySettings
+
+AWS::ApiGateway::Stage.CanarySetting (4 properties)
+- Stage::CanarySetting
+
+AWS::ApiGateway::Deployment.CanarySetting (3 Properties)
+- Deployment.StageDescription::CanarySetting
+
+This attempts to resolve the different properties.
+
+* Add missing property from 9/20/2018 update",d5a21c3031f45c845b2b244040ea8dcf99801299,False,apigateway.py
+0d39e9ae30c94041a365bba3aea57ac3761f4a97,"Add LambdaPermission in Example CloudWatchEventsSample.py (#1141)
+
+* Add LambdaPermission in Example CloudWatchEventsSample.py
+
+* Update tests\examples_out\CloudWatchEventsSample.template
+
+* Fix CloudWatchEventsSample.template Output",0e1f12d4e1b096f6b7f8e1cc7fd004fe07c29bf6,False,"CloudWatchEventsSample.py, CloudWatchEventsSample.template"
+b7b5c783a43d5552998b96a05d17ff895a96bac5,"improve double validation and fix some property datatypes (#1179)
+
+* improve double validation and fix some property datatypes
+
+ - replace `floatingpoint` validator with more valid `double` validator - this is also the naming used in AWS CloudFormation
+ - update CloudWatch Alarm Threshold datatype to double (according to [documentation](https://docs.aws.amazon.com/de_de/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-threshold))
+ - update Glue ExecutionProperty MaxConcurrentRuns datatype to positive_integer (according to [documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns))
+
+* please the linter
+
+* adopt use of floatingpoint to double due to merge of master",0d39e9ae30c94041a365bba3aea57ac3761f4a97,False,"apigateway.py, applicationautoscaling.py, cloudwatch.py, ec2.py, emr.py, glue.py, validators.py"
+e5fa94480dcc82ce9fc9fab6f243a2aa472c2c46,"Fix #1174 TemplateGenerator fail to parse template Fn::Sub with variable (#1180)
+
+* Fix #1174 TemplateGenerator fail to parse template Fn::Sub with variable
+
+Fix #1174
+
+* Modification according to pyflakes",b7b5c783a43d5552998b96a05d17ff895a96bac5,False,"test_basic.py, __init__.py"
+4b13f2e3866801af30547bfa2fb10c40a9eff7c0,Fix EC2 SpotFleet properties #1195 (#1198),35e420de0e919083b03dc60c45094ca8258badc0,False,ec2.py
+f7a8ae1a2ebb1982c354cedf82852598457bf009,"Validate Lambda environment variable names (#1186)
+
+Fixes #766",5b80ec654f6f2b3bfac10fb70b528741c3d79138,False,"test_awslambda.py, awslambda.py"
+8102a4a8d11df7b903c15cbc7b5e104cd963816e,Fix DockerVolumeConfiguration Labels and DriverOpts definition (#1194),f7a8ae1a2ebb1982c354cedf82852598457bf009,False,"test_ecs.py, ecs.py"
+3dc16d6893c3de5a394cce21e605bd066c024c7c,"Setup to_dict for Tags AWSHelper (#1189)
+
+Ran into an issue in stacker where resources with `Tags` couldn't be
+built as `TroposphereType`s because Tags are a subclass of AWSHelperFn.",8102a4a8d11df7b903c15cbc7b5e104cd963816e,False,"test_dict.py, __init__.py"
+0e7d653202908ddeab878b91f37c1090a1859052,Fix bugs and add missing properties in sagemaker (#1214),a35b940954f54b88ec372c05a090b244a16777c2,False,sagemaker.py
+bfe933430cd787ede3fee29c3bc63e7300810d0c,Fix online merge issue,19bbac079df80584d0a55fd2248918a7496b50a7,False,ec2.py
+52da1e3345dbc03d705edb109eb2f210c309da5e,Fixes EC2 SpotFleet LoadBalancersConfig structure (#1233),bfe933430cd787ede3fee29c3bc63e7300810d0c,False,ec2.py
+dc982fd3b7efa76280587ebebb7236ac6f8e4ef7,"Extend Action to support Redirect and FixedResponse for AWS::ElasticLoadBalancingV2::ListenerRule (#1140)
+
+* Extend Action for AWS::ElasticLoadBalancingV2::ListenerRule
+* Add possibility to define redirect type with RedirectConfig as defined in docs: https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_Action.html
+* Add validation to allowed values and combinations of type and required property
+* Add one_of validator to check against list of possible values
+* Add FixedResponse",86989a5b94afa96ac62eb66f4efa461ac0666c8b,False,"test_elasticloadbalancerv2.py, test_validators.py, elasticloadbalancingv2.py, validators.py"
+31fc1f7a09cc646ed8407ca070415acc43d21eff,"Add missing KMS key properties (#1265)
+
+Fix (#1264)",f37ab1eebc00cc09f28bafcb0245e4352a271a89,False,"kms.py, validators.py"
+4e7e0f29d07ecdf1bee647d18508e41f5c39812f,Fix pep errors due to online merge,31fc1f7a09cc646ed8407ca070415acc43d21eff,False,validators.py
+e6686542db9e161479fd6b79bd46b21a84062955,Fix EC2Fleet class definition to match functional correctness of CloudFormation (#1266),4e7e0f29d07ecdf1bee647d18508e41f5c39812f,False,ec2.py
+6a71b048f55c2031a5087c07b16085738cbf359d,"Add AWS::Route53Resolver::ResolverRuleAssociation resource, per 2019 Jan 3 update (#1269)",a423819a7b144a74be0c0f1931970485b02a0a1b,False,route53.py
+d18ee9e523e7222a02d9e798240e1068404f600c,Fix nested 'Name' sections in Output import (#1270),6a71b048f55c2031a5087c07b16085738cbf359d,False,template_generator.py
+f544b21eccbd006e9023ecf7e2f0eea918447548,Add test for nested Name in TemplateGenerator fixed via #1270,abd39f7161c318f7aa88aeb40ea4afebc20c634f,False,test_template_generator.py
+10256fbfc8f84a198ede4ef0b24bcbeefee22f11,Fixes DynamoDB validator error (#1280),cb051b23c9126bf7a8185e735843c91de1e79053,False,dynamodb.py
+80a33bb79012ea8d6947ae6035e8d6542fc6df63,"Add 'Kind' property to AWS::AppSync::Resolver (#1287)
+
+* Add 'Kind' property to AWS::AppSync::Resolver
+   - To use the PipelineConfig feature for AppSync resolvers, the Kind property is required to be PIPELINE.
+    - Adding this property to the resolver class will allow consumers to properly configure Pipeline resolvers.",c1886ada85c8663ba5067e2ee0eaae77a71dda67,False,"test_appsync.py, appsync.py"
+f334c6389b52419c0d9cfcc9fe29a57743af7276,Fix creating RotationSchedule for SecretsManager (#1293),26e2c57fbfa64849918043aefd53258aa591aac8,False,secretsmanager.py
+c3422d271b92021b41c11aae0f24e22e912723bf,"Fix tag sorting on py3 (#1289)
+
+Fixes #1161",f334c6389b52419c0d9cfcc9fe29a57743af7276,False,"test_tags.py, __init__.py"
+00b613754e28ee877e0a164e6e33817c37a9d518,"Updated autoscalingplans to match cloudformation doco (#1291)
+
+- Fixed ScalingInstruction's TargetTrackingConfigurations object type
+- Added missing valid option for VALID_PREDICTIVESCALINGMODE
+- Fixed object type of PredefinedLoadMetricSpecification",feee697496377deab8f3c1adab1eb729fc4250d2,False,autoscalingplans.py
+334c14be214684fa802670f389e7d7658e469d39,Add missing serverless properties (Fixes #1294),00b613754e28ee877e0a164e6e33817c37a9d518,False,"test_serverless.py, serverless.py"
+05672a2b0cf87215dbd6a2a656669e0d3c92d0e5,Fix for pyflakes 2.1.0,9a18e259a2cacefa5adbea1aa874bc4c59838a93,False,".travis.yml, codebuild.py"
+b8f92ee7ea8719bd5acdc348f18a9727acb025e2,Make DataSourceName non-mandatory in appsync resolvers (#1296),a67117e5fe1ccf033a98498d6c128126e66e5d3c,False,appsync.py
+ae0993e253e28ceb34402e3a4b0e5e4771f32d55,"Update integer_list_item to always cast value to an int for comparison (#1192)
+
+Current code seems to assume positive_integer(x) converts to int, while it doesn't.
+This problem generates 'Integer must be one of following...' error when the value is in the list because it tries to find a string in an array of ints. 
+
+Other methods such as integer_range do cast correctly, integer_list_item should work the same.
+
+Ran into this issue when creating a LogGroup object with RetentionInDays set to u'7' which should be valid. Passing a number also doesn't work because the expected value should be a string.",b8f92ee7ea8719bd5acdc348f18a9727acb025e2,False,validators.py
+b50c67110b6e006d26728155238ba37c797c9710,Fix up integer_list_item code and add a test for it,ae0993e253e28ceb34402e3a4b0e5e4771f32d55,False,"test_logs.py, validators.py"
+d300b722c40d4670f875f038f5f3b799bc8950a0,Fix for AWS Lambda reserved environment variables (#1306),b50c67110b6e006d26728155238ba37c797c9710,False,"test_awslambda.py, awslambda.py"
+bb4acade9a7374b08f5e5009b4b24e3bee2d89c1,Add DestinationPrefixListId to EC2 SecurityGroupRule (#1309),d1bb52fe4bb6a4a9b3ef01500fc6da2720804a83,False,ec2.py
+d94f76ecdbd78445a217cc4e10686e06503b558e,Fix Glue StorageDescriptor NumberOfBuckets spelling (#1310),b6b20888591e48ffb8ce57218157ba1712aadcd3,False,glue.py
+414f4356ba6e4b8b5bac399f11945e35f9da632a,Fix  ApiGateway AccessLogSetting prop spelling (#1316),c29532868fd8f746807cf27f67020a441de1b685,False,apigateway.py
+e60a9f035a13d71b90b9539ce1b7dbaf7d54bb43,"Remove awacs as a hard dependency; ensure awacs>=0.8 otherwise (#1325)
+
+* Remove hard dependency on awacs
+  Fixes cloudtools/troposphere#1324
+* If awacs is installed, ensure its version is >= 0.8",42041ba3b7111ee9b7d6b9abac7af43d341c3971,False,"requirements.txt, setup.py"
+548deea195668669ecb89413f4709799efd083da,Add URLSuffix Ref (#1347),bf778739dd8e06a15df49264a9272346e8df3718,False,__init__.py
+be5f3ee434709bc21ac19552932e8ff1fb3d9979,Fix EC2 SpotFleet LoadBalancersConfig TargetGroupConfig (#1346),548deea195668669ecb89413f4709799efd083da,False,ec2.py
+80dcd2d5610bfd66d7bea20fde00c01d98cf4205,Fix a pep8 issue introduced with pycodestyle 2.5.0,1a0ce37f5f07f370e1a061668b565dbccdceac25,False,gen.py
+56e4c26cccd19fd98c9c2f55f856cab71f6e7e65,"Add constants for missing rds instance types (#1365)
+
+Based on https://aws.amazon.com/rds/instance-types/
+
+The 'x1' instances listed on the linked page are missing the `db.`
+prefix.  https://console.aws.amazon.com (create a new oracle instance)
+and
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Oracle.html#Oracle.Concepts.InstanceClasses
+list them with the prefix.",80dcd2d5610bfd66d7bea20fde00c01d98cf4205,False,constants.py
+f5dbb4e897bf3db0e7ef1f33f7d392b659a51954,Fix the scripts for Python3 (#1364),98ddbcc59307d46d234d6d6d289d91dfe99728a5,False,"cfn, cfn2py, gen.py"
+789cb0d40a1e19bfec3db5b59ec1c1674433d603,Fix pycodestyle issues with scripts,84450b097916070d95775509018c3176b13ecc99,False,"cfn, cfn2py, gen.py"
+737277bcfd328d83f2bfda86413631c6d3801dbb,"Fixed: Codebuild Webhook Filters are to be a list of list of WebhookFilter (#1372)
+
+* Fixed: Codebuild Webhook Filters are to be a list of list of WebhookFilter
+According to documentation, Web Hooks should be written in the form of List of List of WebHooks
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html",0c1738daf71e939f8a099af7d410f2c0e35d3119,False,codebuild.py
+dbf1ab10b02e0efc3c55548c9dee3782af801c9e,"Added ECS ProxyConfiguration, DependsOn,  StartTimeout and StopTimeout parameters (#1382)
+
+Fixes #1378",0573b753cd60c41a1038b7843d95035ccd3d51d4,False,"ecs.py, validators.py"
+dd57136059606df2b8f85151c95813f831ce4091,"Fix MethodSettings on AWS::Serverless::Api (#1391)
+
+According to the SAM documentation (and
+https://github.com/awslabs/serverless-application-model/blob/master/samtranslator/model/sam_resources.py):
+* MethodSetting -> MethodSettings
+* this is an array of MethodSetting, not a single MethodSetting",bb2a49425d98879b379956fe6f25fd529fd33cae,False,serverless.py
+c65d50b287c6d6da0443cec8ea63a619c2553adf,"Fixed issue #1394 wrong appmesh Listener property and #1396 dependson should be a type list and #1397 proxy props should be list (#1395)
+
+* Fixed bug for issue #1394
+* Changing dependson to list issue #1396
+* Addressing issue #1397",58bfb641e70f44c409d354e9ae8516c456d0cfb7,False,"appmesh.py, ecs.py"
+300565e86babd81354d96dcdd265debf4e5d749f,"Fix Parameters on AWS::Batch::JobDefinition (#1404)
+
+Parameters is not a required property as per https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters",eb48e80809e3a0b4dbd2bd62954a8e8be232fd05,False,batch.py
+cd0d6216dc72d8fcbad3e70db30d184717c6b420,"Fix bug where FilterGroups were required, when technically they are not (#1424)
+
+Fixes a bug introduced here https://github.com/cloudtools/troposphere/pull/1372
+
+Basically while FilterGroups aren't required, the validate() function
+was effectively making them required.  This makes it so validate only
+validates FilterGroups if they're actually set.",86435bfb48da410bbac7f19eb4448b3165250942,False,"test_codebuild.py, codebuild.py"
+149641db2a1834b30960eef7a2a742cdb208d167,"Update ECS resources from June 13, 2019 update (#1430)
+
+* Add Tags to ECS Cluster, Service and TaskDefinition
+* Add Secret and ResourceRequirements to ContainerDefinition
+* Fix optional properties",a842c5c3780119482875471f314c0e9c5b13beb6,False,ecs.py
+f0036aaef749b42086fc3cbd60614d936ff686ba,Adds 'ErrorOutputPrefix' to *S3DestinationConfiguration (#1439),ddf147e9a7d62b9d43ac98c4c5926cf8ccd66cf1,False,firehose.py
+857efdeb368d3da7b9b26e8a33036516b30d10aa,"KinesisFirehose: updates to ExtendedS3DestinationConfiguration
+
+- Add DataFormatConversionConfiguration property
+- Prefix is no longer required",6527b87f3ebd2ad85e382e720ff3d948bcf2edc6,False,firehose.py
+72f6771c980694c399182565d15640bbe3d09d92,Fix regression in EC2::VPNConnection - add list back to Tags (#1442),03034d075041ffcf3623d798b25e29293990ac28,False,ec2.py
+ec0a43089f336a60cd52c55f25e9ad3b696f2b65,Fix RecoveryPointTags/BackupVaultTags type for AWS Backup resources (#1448),059cfe35c78acbc43ab7281c064234c7cb1bf61f,False,"Backup.py, Backup.template, backup.py"
+fa9be37396a3a0e714cb7ba5d2fbff1587420b5f,Fix Transfer::User SshPublicKeys type (#1459),5fbaf22a6199714ec2289db9960d602a3e48652b,False,transfer.py
+b741ea1b4645b6de4ab009ec303af66da5558a9d,Fix TemporaryPasswordValidityDays type (#1460),fa9be37396a3a0e714cb7ba5d2fbff1587420b5f,False,cognito.py
+d72d99b2dc681ca400f2261b591a7d9dcf529df3,Fix missing required field in CodeContent object (#1472),e7cb5842f3ba1829a72be2ecb7ce140bbc370592,False,kinesisanalyticsv2.py
+130365ab8ea76d02f957f10f2ed40860b113764f,"Fixed a typo in the ClientBroker's value (#1480)
+
+This typo will make CFN error out about invalid tags which is misleading.",a327d76357a47095170eaaa21d79e33c068e9bfa,False,MskCluster.py
+8b4c5617bccee1ad6475b5760959f512c3e9b472,Fix test output in MskCluster.template from issue #1480,130365ab8ea76d02f957f10f2ed40860b113764f,False,MskCluster.template
+50e5200fc8599f49d89a388f780a1312fc33e2df,Fix naming of parameters in FindInMap helper. (#1491),e3d5a818e465d247f66b95e622e0ebc43480ce06,False,__init__.py
+e82644f127dc6f9cd6daeee52f76efeae85451fa,"Fix multiple mappings being overwritten (#1041)
+
+* Fix multiple mappings being overwritten
+* Add test coverage on multiple template mappings",f590a86b5fdac3a6becf87ae94b51f3a08bbc9f8,False,"test_mappings.py, __init__.py"
+9b34c5b6a629d6c26a81e89abdef9bdd4ca8d6cd,Fix some flake8 breakage due to recent commits,52121ac4598c8a9919dd9d4c6cc2b1836f93a027,False,"eks.py, fsx.py"
+9688828731a9eeae2269dd832aa8897afea7924a,"Break out NoDevice property validation (Fixes #1551) (#1553)
+
+* NoDevice is a string for launch template block device mapping and
+  a null object for EC2 block device mapping
+* This addresses the issue by breaking out block device mapping to
+  two separate objects. The EC2 version will keep the original name
+  for backwards compatibility purposes and the launch template
+  version will take up a new name",3c1ef2d29fe7a63772cba7b44df5850f05ac5271,False,ec2.py
+9415814db6c0208e53f88144a2dab058907d364d,Fixed check_required validator error message (#1550),9688828731a9eeae2269dd832aa8897afea7924a,False,validators.py
+53cde0eeaec4f0390a6ded4a0fd668cbb21493ab,fixing AWS::Serverless documentation link (#1562),a28753d7532a5177b85ee0838de2f78bb128d6d0,False,README.rst
+4e6281f6f12db5f8d1ecb0115f1670eff2e4644a,"Add new AWS::RDS::DBCluster VALID_DB_ENGINE_MODES (#1573)
+
+- Add new AWS::RDS::DBCluster VALID_DB_ENGINE_MODES
+- Fixes #1572",f517c266cf4b449508cea32c5ad13aade4854cb6,False,rds.py
+b28769387728573d0af606f1be4dea2a440163f2,"Nodegroup tags type (#1576)
+
+* The tags value in a NodeGroup is a Json object, not a Tags object (a list of Tag objects) as in many other CloudFormation objects.
+* A NodeGroup's Label is also a dict, not a basestring
+* Fix unused import of Tags in eks.py",4d4bf46af752261bed61a9c52daf83b345473969,False,eks.py
+3822260925e69b17dc44da7c802ad328f112df55,fixing property according to the documentation's example (#1595),ea2c2e3fac1cc4b30378f35ace7bf14df6def634,False,wafv2.py
+78434db2e3c0447a2eab90547e8a7d20d827929f,Fix README for PyPI upload,627c72b464acc1f28a3d6a1d2d33cb5d622041ff,False,"README.rst, setup.py"
+d05fed14659013a597f0686d9584215af13da597,Remove extra PublicAccessBlockConfiguration in s3 (Fixes #1541),78434db2e3c0447a2eab90547e8a7d20d827929f,False,s3.py
+45b1cf4d6163484c28223575fdc5c3fe0a7876d6,"Fix up a couple of items for ELBv2 from #1555
+
+- Per resource spec: s/WeightedTargetGroups/TargetGroupTuple/
+- Alphebetize and add trailing commas
+- Tweak an if statement for readability",e2a2497097c3f89705316870fb92ee073fc30a89,False,elasticloadbalancingv2.py
+6fbd6da2e192fe83e75d3e2ba1c0bd284862eab6,"Fixing a missimplementation of rules, caused by a bug in the document… (#1599)
+
+* Fixing a missimplementation of rules, caused by a bug in the documentation
+* splitting the Rule object into 2, as they have different properties
+
+Co-authored-by: Axel Pavageau <axel.pavageau@ekino.com>",45b1cf4d6163484c28223575fdc5c3fe0a7876d6,False,wafv2.py
+fce197c6016e659cbc829eaeeacb85b3d78ec335,"fix: include valid postgres capacity configurations (#1602)
+
+Fixes https://github.com/cloudtools/troposphere/issues/1600
+We are using troposphere and stacker to spin up Aurora Serverless
+clusters using Postgresql and received errors that our MaxCapacity
+arguments to ScalingConfiguration were failing validation even though
+AWS documentation showed them to be correct.
+
+This adds the valid options for postgres as well as mysql",6fbd6da2e192fe83e75d3e2ba1c0bd284862eab6,False,"test_rds.py, rds.py"
+8034d869838ad2f2062e60fae183461bee2a93ea,Fixup WAFv2 TextTransformations property and required (#1607),9fce3c7379c66701b4c405938a52a6c71693138e,False,wafv2.py
+2dc788dbc89c15ce5984f9c40b143494336a2348,"AWS::EC2::SecurityGroupIngress.SourcePrefixListId (#1622)
+
+https://github.com/cloudtools/troposphere/issues/1621",f0c6c7be8963de2ad3537b1864b62b02a7b486fc,False,ec2.py
+d8df2bb8ad2b772421090eef8e54fb2735d536ab,Fixup recent CodeStarConnections and Chatbot additions,0124bb887a5266a1940176e4bdfe560b66590042,False,"README.rst, chatbot.py, codestarconnections.py"
+42a2295bf44ea25d4fdbc84f8c25d1fb900648c4,"Fixes to acmpca (#1660)
+
+* Update acmpca.py
+* Update Certificate to AWSObject",d8df2bb8ad2b772421090eef8e54fb2735d536ab,False,acmpca.py
+8c0d59891860e226d531268ed6c19835c590b6ad,Fixup link and comments for AWS::Cassandra (related to #1616),151931bdd0887f840cabd573f54e8734a41c7232,False,"README.rst, cassandra.py"
+54bff387aa18ce1ca7d68324eeb91e5ffe143006,"Fix several problems in wafv2
+
+- Several classes were subclasses of AWSObject when they should be
+  subclasses of AWSProperty.
+
+- Several classes have arguments that are lists. These args were defined
+  via intermediate classes that in turn defined the lists. This was incorrect.
+  The classes should accept the lists directly.
+
+  I fixed the list arguments for these classes:
+
+    GeoMatchStatement
+    AndStatementOne
+    OrStatementOne
+    AndStatementTwo
+    OrStatementTwo
+
+  I remove these unnecessary intermediate list classes:
+
+    CountryCodes
+    StatementTwos
+    StatementThrees",8c0d59891860e226d531268ed6c19835c590b6ad,False,wafv2.py
+229ece78a07959aa8ce085794a3d497ae06b7e78,Fixup links in README.rst,1fe85643c1e8c9bcbe0f9f4f2cba5a295215f6f5,False,README.rst
+745ef97a637eeb6c9a9201b23411309da694afb9,Fix new test changes to use TROPO_REAL_BOOL,e102b76c058dd05c7f1e4d32ad5d76714fd6e5a3,False,"IoTAnalytics.template, IoTSample.template"
+9521f8e73657262a0df3d10bb686756cd071476f,Change ApiGateway::RestApi FailOnWarnings from basestring to boolean (Fixes #1655),745ef97a637eeb6c9a9201b23411309da694afb9,False,apigateway.py
+058da43e2c0159017f70a1e167092d2de79877c5,Fix typo: pros => props,919c7bbb864f2144a910e167090a5cdf80203338,False,imagebuilder.py
+01b44a3b8819cf6c587013716ea410492a4e0848,Fix bullets in README.rst,336ab517038c680a19bdef697d4be77530f75432,False,README.rst
+bf34cc2202bed56bc7d7f083e45414327f89bee2,"Bug Fixes: wafv2 names not required
+
+Change the Name param from required to optional for these resource:
+WebACL, IPSet, RegexPatternSet, RuleGroup",5380f1d13bc7cd7dba281a82c2ccb001c9b0fc48,False,wafv2.py
+6232658892432b77b5641624744032a8f74697f3,Fixing misc AWS::ImageBuilder properties,97e12661ee9fdeb6f8e2621fe62684a8c90c2652,False,imagebuilder.py
+d5dd000992a8ffa9890ed459af2567b080ead7f8,Fix bools in example output,f32ca5c383e847501c56492223476717129f92f6,False,AuroraServerlessRDS_SecretsManager.template
+240fca0e3f71e8186cc9679943cce5f203a7dff2,fix syntax,e153b08095322408fa101ae24602312b6ec55df2,False,wafv2.py
+9ed0d88ec33fab45b1f51c63d3bd91dde74a20dd,"Fix S3Encryptions in Glue EncryptionConfiguration (#1725)
+
+* Modifying glue.py to generate valid CloudFormation output for Glue Jobs that need to work with an encrypted S3 Bucket.
+
+Co-authored-by: Kyle Hutchinson <kyle.hutchinson@progressfin.com>",446148c99f9e9ff180419a58cded674d2fe152ab,False,glue.py
+7ce75f4536e945776de4658b5182259c4592d88a,Add AWS::IoT::ProvisioningTemplate per 2020-06-04 changes (Fixes #1723),f75a0d9f5306f2b4ed4bd987d0e68010d27e61d1,False,iot.py
+86f015348acb833b230fc6d8c8a9299f9af3b8cc,Fix required setting for SageMaker::Model PrimaryContainer (Fixes #1729),ba7dba05a5e4a823cc4d7269663d2ed60ec47c44,False,sagemaker.py
+02e234fac40727a38b07cfaad9328d1713b59a40,Fix tests and alphabetize properties in ECS,6d13b3b041e3e6cd6089814ad3276a905aa10bc3,False,ecs.py
+f11deff06f65d46c568c05f39578b38ed7b7e4cd,Add SourcePrefixListId to the ec2.SecurityGroupIngress validator (Fixes #1739),b7b30ac0922d02c45fdc92ddf35374d9c2506bd4,False,ec2.py
+29a97c67e4c1240e7eb8f266fcbb11ad75217796,Add ApplicationCloudWatchLoggingOption for KinesisAnalyticsV2 (Fixes #1738),f11deff06f65d46c568c05f39578b38ed7b7e4cd,False,kinesisanalyticsv2.py
+3aa5c43226571094fb38e0cc0a0cab897c08a6d9,"Add required TargetGroupName to DBProxyTargetGroup
+
+Cloudformation seems to throw an error when a DBProxyTargetGroup lacks
+the TargetGroupName property.  The Cloudformation documentation for the
+DBProxyTargetGroup resource has no reference to this property, but the
+examples on the page for DBProxy shows the TargetGroupName being set to
+""default"" in the DBProxyTargetGroup resource.",29a97c67e4c1240e7eb8f266fcbb11ad75217796,False,rds.py
+4a55fa683d57200bd0f6d9d9dd56455744a23226,Add VpcConfiguration to AWS::KinesisFirehose::DeliveryStream (Fixes #1717),3aa5c43226571094fb38e0cc0a0cab897c08a6d9,False,firehose.py
+92f00038746574406ebef94fe8bb1f60c0dca7cf,Add AWS::EC2::PrefixList per 2020-07-09 update,7b44bc546056f993fef02ada0186b9bae7a8df7c,False,ec2.py
+7eedc308b00fe31168a5e186babaf4d31a289c5e,"AWS::ServiceCatalog::LaunchRoleConstraint.RoleArn not required (#1765)
+
+https://github.com/cloudtools/troposphere/issues/1757
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-rolearn",94465923a465f41f3c26fce21b50b8d84509bf8d,False,servicecatalog.py
+b2f8a76d27a52a7b29c4f6427435f672a4e6444e,"AWS::KinesisFirehose::DeliveryStream BufferingHints and CompressionFormat not required in S3DestinationConfigurations (#1766)
+
+fixes https://github.com/cloudtools/troposphere/issues/1753
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html",89500c7c5f0b6efd121f55e347f0a8b9f01cf6ef,False,firehose.py
+25bab401c32aae4ee5051e9948e5f26418feba69,"AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration.TypeName not required (#1767)
+
+fixes https://github.com/cloudtools/troposphere/issues/1744
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-typename",b2f8a76d27a52a7b29c4f6427435f672a4e6444e,False,firehose.py
+3fff834c81363dd967615217ad9d4f3b1897d590,"AWS::StepFunctions::StateMachine DefinitionString and S3Location.Version not required (#1768)
+
+fixes https://github.com/cloudtools/troposphere/issues/1764
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version",25bab401c32aae4ee5051e9948e5f26418feba69,False,stepfunctions.py
+1c43a007d04d485ae58b77625aabdd2aa55bf39b,"Add AWS::EC2::SecurityGroup.Ingress.SourcePrefixListId to SecurityGroupRule (#1762)
+
+Add SourcePrefixListId to combined SecurityGroupRule for consistency
+with SecurityGroupIngress and SecurityGroupEgress
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule-1.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid",3fff834c81363dd967615217ad9d4f3b1897d590,False,ec2.py
+9bacb74b83af2f3977a34a72115dc9f22fc7c4fb,"AWS::Elasticsearch::Domain.AdvancedSecurityOptions (#1775)
+
+fixes https://github.com/cloudtools/troposphere/issues/1774
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedsecurityoptions
+
+Co-authored-by: Pat Myron <PatMyron@users.noreply.github.com>",1c43a007d04d485ae58b77625aabdd2aa55bf39b,False,elasticsearch.py
+95249f8e3a4a36623859b3e5725bd2c958d6b478,"AWS::Glue::Connection.ConnectionInput.ConnectionType AllowedValues expansion (#1777)
+
+fixes https://github.com/cloudtools/troposphere/issues/1776
+
+https://github.com/aws-cloudformation/cfn-python-lint/pull/1673
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype",9bacb74b83af2f3977a34a72115dc9f22fc7c4fb,False,glue.py
+0f1247bea362fcb5a92188061d87b97c23149910,Fix some flake8 errors,f12e73fd45a683ee439ec904c506433c45a72cad,False,"test_efs.py, efs.py"
+c35324b083f911af1ed8c8d380505c66dcbeefcc,Add ECR ImageScanningConfiguration and ImageTagMutability (Fixes #1544),d76057d802b4c98fc0bc142cbd797e1c91c6a581,False,ecr.py
+1ca9e8c0ef00fa5cf333aae038c7f362855e6cfb,Fix capitalization in AwsVpcConfiguration (#1788),28b06a196d8e66e8d0f865da91af26868ac0de43,False,"ECSFargate.py, ECSFargate.template, test_ecs.py, ecs.py"
+0de47c752fe1bc1ce99c2de8274f7f5597985b75,"fixing tags data type (#1785)
+
+Co-authored-by: Sambo <sambo@Sambos-MBP.fritz.box>",6a35ad325e7136d4d67b1931cb4f43de2698d22f,False,athena.py
+ef993235f9ff3f5f77f85301bcc7e5c2137b5076,Fix typo AWSOject => AWSObject,b217e5bff61709582992b114955ae1fc7cccfc4d,False,appmesh.py
+d561bdab344c03bb25c0e0e8c853ad6c6bf027ae,"Revert ""Fix capitalization in AwsVpcConfiguration (#1788)"" (#1798)
+
+See comment by Pat Myron from AWS:
+
+    This property was accidentally uppercased during the migration of
+    `AWS::ECS::Service` to the CloudFormation Registry in Resource
+    Specification 18.4.0 and reverted in 18.6.0. It should probably be
+    kept lowercase
+
+https://github.com/cloudtools/troposphere/pull/1788#issuecomment-702982230
+
+This reverts commit 1ca9e8c0ef00fa5cf333aae038c7f362855e6cfb.",d6eb40151db138e3bc27d7cc1e4cedb69ab4a95f,False,"ECSFargate.py, ECSFargate.template, test_ecs.py, ecs.py"
+dca6d22288ccb42e5eca0ff059d2b62fe0bca971,Update Route53Resolver per 2020-08-27 changes,585bb1729076e43a7b76a67de2e7001d0e4a8fc7,False,route53.py
+288762f4c5317582952669d517aeb19154caf693,Fix formatting in MSK,fe007309b1c2e8f0cc594a1faec9d35076244108,False,msk.py
+8faeda1648a6bc27dd25d7317f9297b3540b8e94,Remove duplicate elasticache NodeGroupConfiguration property (Fixes #1803),bf8267a14ef4ecd0462b660c06e307caece79707,False,elasticache.py
+c1a4589ed05e835d51a8b71954bbaaa5c1007299,Update DLM to support cross region copy (Fixes #1799),3c84373cee0fe117ac816bee8e5d14172d2597ab,False,dlm.py
+1ffd7734449ffd00856506c7b5dfc81e547bd230,Update WAFv2 per 2020-0723 changes (Fixes #1797),c1a4589ed05e835d51a8b71954bbaaa5c1007299,False,wafv2.py
+1ac26d3be4072672e740acbb427f40b3b98c0de9,Update ECR::Repository.ImageScanningConfiguration to output the correct json (Fixes #1791),1ffd7734449ffd00856506c7b5dfc81e547bd230,False,ecr.py
+a33ee4e519efe0f154cd3bc6a67f217da5d871b1,Fix required value for ecs.EFSVolumeConfiguation AuthorizationConfig (Fixes #1806),fd64fa9deee9fb9da12165de620aa285e0a09f02,False,ecs.py
+145a7f03201f91326a0399a9844b235a465f6eeb,Fix issues with ecs.EFSVolumeConfiguration usage (#1808),82f5ccebf556dc3b45aeeaf34b41f5887340d3b8,False,validators.py
+d8c33e84f6c0edeb1f3db1bb0030b73163c20f60,"fixing typo in updated region and availability zone constants
+
+https://github.com/cloudtools/troposphere/pull/1810",bb36ef45c7098468d3937d25fdbd87c337a1ef91,False,constants.py
+cb774406168a3a8de42b9e54e1d16a18d0d68fd2,"increased CloudFormation template limits (#1814)
+
+https://github.com/aws-cloudformation/aws-cloudformation-coverage-roadmap/issues/360
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html
+https://aws.amazon.com/about-aws/whats-new/2020/10/aws-cloudformation-now-supports-increased-limits-on-five-service-quotas/",260b6d495308779d987b11f79c45cc8c4fd4a015,False,__init__.py
+4df030e3d5c0f866ee124d22e2380cf2aec5a4ee,Fix tests with new template limits (Related to #1814),cb774406168a3a8de42b9e54e1d16a18d0d68fd2,False,test_template.py
+fa5b9c552e275d3863677d5175f79f0f7ae378b4,Add CapacityReservationSpecification to EC2::LaunchTemplateData (Fixes #1813),4df030e3d5c0f866ee124d22e2380cf2aec5a4ee,False,ec2.py
+518d3a3142ba8179bb6c539dcf67139d4e82da66,"AWS::SSM::PatchBaseline.OperatingSystem AllowedValues expansion (#1823)
+
+fixes https://github.com/cloudtools/troposphere/issues/1822
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-operatingsystem",50636ecb58827bdaebbaa2abbef9bc2e68d36a84,False,validators.py
+1d78083847d2dadd2368b924fc95577a84c4dbcb,"flake8 fixes (#1845)
+
+introduced in https://github.com/cloudtools/troposphere/commit/070f63c13aacf2effb47afe080d70e2813b0048b, https://github.com/cloudtools/troposphere/pull/1823",900757ba97ae3f837cb43f0568590ebbf9ddcebf,False,"kinesisanalyticsv2.py, validators.py"
+3aab9f2747040d028d8df1aa49f396755ac5414b,"Add AllocationStrategy to EMR instance fleet configuration (#1837)
+
+* Add AllocationStrategy to EMR instance fleet configuration
+* Make error message for invalid AllocationStrategy more generic.",fddcc80db3e8d03ae273596a485252e0e29286a9,False,emr.py
+d51edfc6a22b565f7e5d778439af7736f410d7b6,Fix formatting in recent EMR PR,708e30cebd625418c66600a541b944b2a87a2bc6,False,emr.py
+8f1b555d07afd0809240f7c37d9484485fe4deee,"AWS::AutoScaling::LaunchConfiguration.MetadataOptions (#1840)
+
+* Add MetadataOptions support for AutoScaling::LaunchConfiguration
+* Fix autoscaling group positioning error
+
+Co-authored-by: Ricardo Soro <rsoro@sjenglm061.trad.tradestation.com>",d51edfc6a22b565f7e5d778439af7736f410d7b6,False,autoscaling.py
+292f9caa2e5761715ee574486a1a537727413a24,Fix tests from previous merge,11e664db2c2b63e5954098713b592aaf379b375f,False,"Lambda.template, test_awslambda.py"
+c0bce2d0a8333ee8d74b00406b2fbf9721d13201,"docs: fix simple typo, shoud -> should (#1851)",b99028491b08b92e33d57f590d75af31b456f955,False,userdata.py
+d2914a17a4e9ba32f418eb65ad98f20e14927e15,Fix typo in ECS DeploymentCircuitBreaker RollBack => Rollback (Fixes #1877),0f882d37142fff6fbd5d24c2ed83782b5910593b,False,ecs.py
+ba80839f1e092ff9c49f28f78b17bd82ef6785c7,Fix line length issue from previous commit (#1090),b15d523789d81d12de8db443768d047b0ca05466,False,__init__.py
+fe7e1dc7a1364dad58f89a463c74f75b3da56d12,Fix tests by removing import of json_checker in kinesisanalyticsv2 (#1863),30c64ab3a9c25396df4f3e19268fca83ef1f64b1,False,kinesisanalyticsv2.py
+7a5a4c1a79ded936bbc5fd105088a194acc030ae,Update Route53 and Route53Resolver per 2021-01-07 changes,3fa0e286a1d322ed7e9c7b674fd99face3500504,False,route53.py
+d1b20b9199d509de8993a230ad519972d5a91ee1,Update required fields for Batch::ComputeResources (Fixes #1880),55380576d71435ce9ffcad22ab2a9550811d3cf3,False,batch.py
+a7796f8f9fbda10504fa4b940cc5701546a5cec6,"Fix autoscaling.Tags to use boolean instead of str (#1874)
+
+* Fix autoscaling.Tags to use boolean instead of str
+- reference: https://github.com/cloudtools/troposphere/pull/1409
+* Use boolean() for propagation default value too
+* Fix test_tags",d1b20b9199d509de8993a230ad519972d5a91ee1,False,"test_tags.py, autoscaling.py"
+891b8bb977303e0bd29606ec89109d7618735ff9,Add OutpostArn to EC2::Subnet (Fixes #1849),a7796f8f9fbda10504fa4b940cc5701546a5cec6,False,ec2.py
+5c0de9a8400133382f00e38c7b90751492f41cf8,Update Transfer per 2020-10-22 changes (Fixes #1817),891b8bb977303e0bd29606ec89109d7618735ff9,False,transfer.py
+1b1d7bbc4e115b753424956d96677692dac99c3e,Add MediaPackage per 2020-10-22 changes (Fixes #1815),5c0de9a8400133382f00e38c7b90751492f41cf8,False,"README.rst, mediapackage.py"
+cc2c84c1921d1cd3161906467272a8e076621234,Update README with functioning example of missing required property (Fixes #1763),1b1d7bbc4e115b753424956d96677692dac99c3e,False,README.rst
+0fcf7f24de80d42f189901d5e59becfd421facc2,Update EMR per 2020-10-22 and 2021-02-25 changes (Fixes #1816),cc2c84c1921d1cd3161906467272a8e076621234,False,emr.py
+93ac95318eae198ad589e8f60aeb1fc4cf20c565,Add DataBrew (Fixes #1862),0fcf7f24de80d42f189901d5e59becfd421facc2,False,"README.rst, databrew.py"
+8b5a8c5ff0467bb98a73f0678b68a6d5f22ee64e,Fix some corner cases in the autogenerator,08256b45b41bee8bf1c8baf1a39dda258a4c26b5,False,gen.py
+0a65880ba5531c4ccdc580703825127aef893df7,Restore TypeError's message,94c3d304de43e9b9c3d8b0329c33c146958708ea,False,__init__.py
+a9a69aab583dad95ec7102a4eb9fbac2f5d935d9,Cleanup ImportErrors and NameErrors,0a65880ba5531c4ccdc580703825127aef893df7,False,"test_examples.py, test_examples_template_generator.py, test_rds.py, test_template_generator.py"
+b541d865ebc63d324f272c0e2399138d9b9b03f7,[examples] Fix indentation,c7c8ce0996950f4e2645ac0664594ead73338779,False,Lambda.py
+c2d27acd674bc1338cf927e13142abf66406e96e,Fix Python3 deprecation: import from collections.abc,de6d93c32638ef9feb8517d84496b66b380dbd3a,False,test_int_type.py
+f7755ab2b5b888e469e0181b8527b4c4adea62a5,Quick fix for travis needing cfn_flip imported,b311efe61137e19bc28a123a3d3e28ff462b27bb,False,.travis.yml
+6c939cb0d2410c9745b34c55e42f468b5d55898b,Fix intermittent failure due to an incorrect resource_name in ECR,3e0dc33e8fa76005d067154705d52432806acffe,False,ecr.py
+db117248dfb0fc500ae9d10db34c42608240bb8d,Fix template generator boolean interoperability (Fixes #1044),ad7c5f2a562e865e89d346dbc349ec4ff69411f9,False,template_generator.py
+d371f0dbdb44136347d711c601a391a036ae6ccf,Fix black format in tests/test_awslambda.py,5bc37cbf99e5b80d43194c5d977b8d164c9febb7,False,test_awslambda.py
+18095d6fdbeadaaaff02f948ec1cdf56e5f63c90,Fix properties in LookoutMetrics VpcConfiguration,d371f0dbdb44136347d711c601a391a036ae6ccf,False,lookoutmetrics.py
+8aba3d423a235a093d2f91b2ab0fa2cc49c81ada,Update Route53Resolver per 2021-04-01 changes,115aea8913a49b20b6bb822c81e01a7dba505370,False,route53.py
+c1374880019b3f64f43460b19571f86ce46e03bc,Fixup black formatting,2f5672c1db81369fb2aa87f0a3ca0464aed1ad4a,False,"test_validators.py, validators.py, wafv2.py"
+4c09f6285af268f36fb730cf1571b497df6d323e,Fix black formatting for serverless.py,31a63f9ab6fc474b702a66ccea0c70295caf7a19,False,serverless.py
+43ff638a5f3c054e5e6866a6c8fefbbd41c96910,Fix TestSplit negtive test (Fixes #1919),382b9e649741c06603ef0fb5cb65b09aaa7c1566,False,test_basic.py
+fe760b8fee4ca9dc0d9b2d3d23ced4a719c56665,Add EngineVersion to Athena::WorkGroup (Fixes #1915),43ff638a5f3c054e5e6866a6c8fefbbd41c96910,False,athena.py
+5dff2d4f9cfbf4bf3149576717f1b5f281028e87,Add ResourceTags to ImageBuilder::InfrastructureConfiguration (Fixes #1909),fe760b8fee4ca9dc0d9b2d3d23ced4a719c56665,False,imagebuilder.py
+d724a4390c7ce3666b44e60ee060328abaf68d3a,"S3 ReplicationConfigurationRules Prefix is no longer required (Fixes #1910)
+
+It appears Filter and Prefix are mutually exclusive so Prefix
+cannot be required.",5dff2d4f9cfbf4bf3149576717f1b5f281028e87,False,s3.py
+3af149c9e48f0912d19b87a327c779f4af0a77c2,Update ApiGateway per 2021-04-15 changes (Fixes #1893),d724a4390c7ce3666b44e60ee060328abaf68d3a,False,apigateway.py
+15478380cc0775c1cb915b74c031d68ca988b1c5,Add ProtocolVersion to ElasticLoadBalancingV2::TargetGroup (Fixes #1888),e56c4d5d9791b50dfd1fe6255f09d61a72e123ce,False,elasticloadbalancingv2.py
+96d51ae5ff0552d545d4583d8f2ede265738d14d,Fix CHANGELOG with correct 3.0.0 release date,9c00d50a5a7b8c320f8cc6b55d7c33d364c0fc5b,False,CHANGELOG.rst
+a3a87a258a3f46371b1be54340f236d30e5d06db,Fix EKS::Nodegroup.Taints to use the correct key for taints (#1925),96d51ae5ff0552d545d4583d8f2ede265738d14d,False,eks.py
+49b6b54a9c83700432b154bd78e8d9a54182e005,Fix CanarySettings PercentTraffic definition,e3468480f8208008634de515fb4069b827ab26ef,False,apigateway.py
+53e8e69e9abf5afea7a0f8d224d7bf0723676ba9,"Fix NetworkFirewall properties
+
+- Added Property type for FirewallPolicy
+- Added Property type for RuleGroup
+- Added validation for RuleGroup.Type
+- Fix for linting
+- Fixes #1933",49b6b54a9c83700432b154bd78e8d9a54182e005,False,networkfirewall.py
+8735a849b2d7c6923485081e225b72303277072c,Fixup formatting in NetworkFirewall,53e8e69e9abf5afea7a0f8d224d7bf0723676ba9,False,networkfirewall.py
+2a022036a7d3008e12380824b71e34fb23acd479,Use jsonpatch to fixup spec files before generating code,8735a849b2d7c6923485081e225b72303277072c,False,"requirements-dev.txt, gen.py, DataBrew.json, IoTSiteWise.json, NetworkFirewall.json"
+414a10af64f0227b213d9e3cd674e09d46978057,Fix black formatting in autoscaling.py,41d0db5db223d63327e8d552b5663d1d19e7a826,False,autoscaling.py
+a7716408e1dc3693ec4157ea170eb6213ef85b36,"Fix duplicate AWS::Logs::ResourcePolicy
+
+The newly added LogResourcePolicy already existed as ResourcePolicy
+in Logs. Prefer the older one as it aligns with the AWS naming.
+This does keep the newly added validation and tests.",e1706e5f026b6fd2eabcde48ce8e5906c3afd3f5,False,"test_logs.py, logs.py"
+893f946500a4cb523f28f46cc18b61ed1e8ef241,Fix imports for serverless,f7ad49c8e7091bffbdd5f2835354979bc7e384fc,False,"test_serverless.py, serverless.py"
+e84dc4b0fe2103bfc931ffaee3435ada72ff8709,"fix: creating specific AWS::MediaPackage::OriginEndpoint  AWSProperty sets, as they are different from AWS::MediaPackage::PackagingConfiguration's AWSProperty sets",e3248b786ad15f8f8f690a77055eea035e588739,False,"Mediapackage.py, Mediapackage.template, mediapackage.py"
+b1e940816cda50ded6a8a6c25c5feaa175bc86ea,Fix black formatting,24c2cf98d122858f004c505ac512ea4aa7fec4fe,False,"Mediapackage.py, firehose.py, mediapackage.py"
+55975193e4b26a6051db91a60ac17c1d7e4a320d,Fix isort and black formatting issues,f04a68e52d328ae38decf67a1a35c00a54e70bd3,False,"test_opensearchservice.py, opensearchservice.py"
+5e78d6e02544dde93923d3cb966acc859219f7df,Fix missing underscore in README links,052ae813b828765660c73b0452b99ea2886b95c7,False,README.rst
+3042dd333e4d0a1ea91edc53b83480e137c4a774,Fix black formatting,28c0aae70852d3fda3a39d2c2909a6fe8351da17,False,cassandra.py
+4b2f0df889b6e7152ff2eeb1773f05091ee5e8ee,Update Route53Resolver per 2021-10-28 changes,3f7d0d3ce1f422abbe6ef16fe5dbb44beb8dcbab,False,route53.py
+62afff03bb1cc56ae5ce8dd49c5b17c98c96f570,Fix black formatting,9b800775fc144bd9a670f30b2ada4fd1b517ef83,False,"cloudfront.py, validators.py"
+1296551e637894b929efa45c1f4404d69553fcbb,"CHANGELOG.rst Formatting Fixes (#1983)
+
+Changes:
+
+- Silenced a Sphinx error by closing an unclosed emphasis markup.
+- Fixed 3.0.0 release notes formatting.
+
+The 3.0.0 releases notes were mostly rendering as just a paragraph, or
+an an incomplete list with unexpected indentation. These changes fix the
+formatting so that the 3.0.0 release notes Breaking Changes, and Changes
+lists are now subsections of the 3.0.0 section. The second bullet point
+in the Breaking Changes section was also throwing unexpected indentation
+errors. This has been resolved now, and the section is rendering as a
+literal box as expected.",b6e9fda3f072c191cacb0f0ef9a354bed5b0eca0,False,CHANGELOG.rst
+b7f270184d791fc441702d01a3528b482aa565be,"Fixed NetworkFirewall::LoggingConfiguration (#1984)
+
+* Fixed LoggingConfiguration by introducing LoggingConfigurationProperty.",1296551e637894b929efa45c1f4404d69553fcbb,False,networkfirewall.py
+2424b00ca862c204c657bedad8db4e91ead88db5,Fix black formatting/isort,14734b4d34353c4a32244fdeaa6629bc112c81de,False,"conf.py, kinesis.py"
+be15eeeb502ae962455fc048abf6d73d8057b28d,Update SageMaker per 2021-12-03 changes and fix SageMaker::Device,85fbaf63b663ffe00fb7b0df027e1c81b3780054,False,"sagemaker.py, sagemaker.py"
+13b0c3d1b13113c4268acf24dba2ac15b92f1877,Makefile tweaks: add fix target and combine spec2 with spec,971611a0759c16f4144d48d03a1d4571bcec0765,False,Makefile
+8c44a90dabd051cd18dc153b2e4c77ae9ec6632d,Fix some lint errors,83831cb5e4e0224a3eb7d638a81d30fc7687a937,False,"gen.py, kinesis.py, s3.py"
+a81dd2f06630f7e9ca84faa73ef98812d27454b9,Fix examples where variables were aliasing classes,ca0deeec381b13c31b44399fb141801ebae6a96c,False,"Autoscaling.py, AutoscalingHTTPRequests.py, CloudTrail.py, Lambda.py, VPC_With_VPN_Connection.py, VPC_single_instance_in_subnet.py, WAF_Common_Attacks_Sample.py, WAF_Regional_Common_Attacks_Sample.py"
+283167ef32c0ac54a5f0ce9a33cb2222bc28766e,"Restore AWS::ECS::TaskDefinition AuthorizationConfig (Fixes #1997)
+
+EFSVolumeConfigurationFix.AuthorizationConfig has both a PrimitiveType of
+Json and a Type of AuthorizationConfig. The generator prefers PrimitiveType
+so this change removes it to allow emitting AuthorizationConfig.",e0f111750c77f71d30c3aec8d30b38ea5f46f476,False,"ecs.py, ecs.py"
+164092e65e37ee0f6484de36495e82f6904521df,Fix backward compat issue with ECS HostVolumeProperties => Host,283167ef32c0ac54a5f0ce9a33cb2222bc28766e,False,"ecs.py, ecs.py"
+2d6c1d20646d3398abd810c8b56c6b90111b1be7,Fix backward compat issue with CodeDeploy RevisionLocation => Revision,164092e65e37ee0f6484de36495e82f6904521df,False,"codedeploy.py, codedeploy.py"
+9d4300f2dd4e479b7df350a6e42fbb2a242039e7,"Various changes to the code generator
+
+- Allow using a file for a list of service names
+- Try to handle Tags more gracefully
+- Dump info on a common KeyError",6fdd0df490398d093e207dbf42f8890f9a8940f0,False,gen.py
+b1590f58ed8cc86ba18a19ed93fc9380d6f7306b,Fix copy/paste issue resulting in incorrect ECS validator assignment (Fixes #2000),9d4300f2dd4e479b7df350a6e42fbb2a242039e7,False,"ecs.py, ecs.py"
+0594f1c6476596d22d0381f24bd7e373054cd1b9,"Automatically correct Resource/Property dups in the code generator
+
+Previously duplicates names for a Resource and Property needed to be
+handled in the jsonpatch phase. This change automatically detects and
+corrects these dups. Also tweaked some of the debug output.",b1590f58ed8cc86ba18a19ed93fc9380d6f7306b,False,gen.py
+e424a18fcf7f538a380721bd490b66734fa47f39,Fix SNS Subscription resource type,b4fc9dba92e84a87062b17c813114bc923be6046,False,"sns.py, sns.py"
+afe85613c8708ed82ef3a9ab6510da7da1753bd0,"Remove unneeded properties that should not be emitted
+
+Some properties are associated with resource attributes as returned from
+Fn::GetAtt. This change fixes up via jsonpatch to remove these properties.",c8eff12076e9771c8929b7d39a223e6089ad6305,False,"appintegrations.py, efs.py, events.py, lightsail.py, macie.py, quicksight.py, route53recoverycontrol.py, s3outposts.py, ssm.py, wafv2.py, workspaces.py"
+48b798612ed4695b7a01843fadc0290816019d41,"Change for gen to emit all meaningful properties, Tags cleanup, and other changes
+
+- Emit any leftover properties not ""seen"" through traversing the resources
+- Cleanup how Tags are detected and emitted
+- Add exporting classes from validation files
+- Fix output for lists of primitive types
+- Output more information when there is a JsonPatchConflict",cc640a24b43c179317c75785a973e09b0a416e93,False,gen.py
+d96ce5ac2f680238f840aea6aacab631e9025527,Fixup some incorrect Tags types,790f81c6f0571fb32733378972670beca213c679,False,"fis.py, amazonmq.py, fis.py, greengrassv2.py, nimblestudio.py, quicksight.py, resiliencehub.py, robomaker.py, servicecatalogappregistry.py"
+d28a1f3afa910050c57bf10949d432fb9a02bf67,Auto-generate Route53Resolver,ff6792ddadf816f85040adb06c589623b50f5351,False,"route53resolver.py, route53resolver.py"
+5447948786e92de312d3e8586e0139ccb6f8beda,Fix typo in ECS validator name,bdcaab3cef2ad015adc5aad11faf1dac4ae0fc8a,False,"ecs.py, ecs.py"
+963f5a832ec54659a6f3f1034286eaa49d4924de,"Reimplement WAFv2 Statement validation
+
+The current WAFv2 works around a cyclic issue by using copies of objects
+to allow hierarchical use. This change works around this issue by using
+property validators instead. This does break backward compatibility with
+the following class renames:
+  - AndStatementOne, AndStatementTwo => AndStatement
+  - NotStatementOne, NotStatementTwo => NotStatement
+  - OrStatementOne, OrStatementTwo => OrStatement
+  - RateBasedStatementOne, RateBasedStatementTwo => RateBasedStatement
+  - StatementOne, StatementTwo, StatementThree => Statement",1352c8136ca0171f5a22162e442b755086c3e32e,False,"CHANGELOG.rst, gen.py, wafv2.py, test_wafv2.py, wafv2.py, wafv2.py"
+728f660eb2bf28caf32e324926eed3c882547967,Fix typing issues in openstack,963f5a832ec54659a6f3f1034286eaa49d4924de,False,"neutron.py, nova.py"
+cf527ab34cc7fe147a039b26c65febd775d0d6ff,Improve error message for AWSProperty types where resource_type is not defined,8e46cbc099f31dff525f985b328e52063ce5d652,False,"test_basic.py, __init__.py"
+f23f66d955895b91129a7107d43892ebc888a3db,"DataBrew: Fix duplicate but different S3Location
+
+Renamed Job.S3TableOutputOptions S3Location => JobS3Location",5d5522d50a86a4bd78bc5393e99e42114d31c29d,False,"databrew.py, databrew.py"
+39ac2684303f0b756bef4ac4035c8ccc49a912ee,"ImageBuilder: Fix duplicate but different ComponentConfiguration
+
+Renamed ContainerRecipe ComponentConfiguration => ContainerComponentConfigur",f23f66d955895b91129a7107d43892ebc888a3db,False,"imagebuilder.py, imagebuilder.py"
+d2bd02f5731d8be0e1cd479b60b70acd15c26951,"SageMaker: Fix duplicate but different ComponentConfiguration
+
+- Renamed ModelBiasEndpointInput EndpointInput => ModelBiasEndpointInput
+- Renamed ModelExplainabilityJobInput EndpointInput => ModelExplainabilityEndpointInput
+- Renamed ModelQualityJobDefinition EndpointInput => ModelBiasEndpointInput",39ac2684303f0b756bef4ac4035c8ccc49a912ee,False,"sagemaker.py, sagemaker.py"
+16fc59cd0b95d07fb288cdf1dda29668467f2f29,Fix AccessControlAllowMethods.Items validator (Fixes #2023),56c07a25a4e530d67208aa5dd3f19fab754c03cb,False,"test_cloudfront.py, cloudfront.py"
+cdfc702741a0209fe55c8aff5ac6c61ed81cb332,Fix duplicate resource names due to FSx::Volume,16fc59cd0b95d07fb288cdf1dda29668467f2f29,False,fsx.py
+61f6fde893c7b4a056588faef66043d608c90204,Fix WAFv2 AndStatement and OrStatement validation (Fixes #2026),1501c309cde3529ab31a686cc3881b43351edc62,False,"test_wafv2.py, wafv2.py"
+b8ad5bd30274df362c13ffa9e6c1f2396d94402d,Fix isort in serverless.py,62e12ce396da9a4b8babead251901123d316eee8,False,serverless.py
+fe1c7686442df0efc815fe1bc22b2f355c32cfe6,tests action: ensure spec generation and formatting fixups are clean,af98a119c49957cff2587ef9399103087c6e7d42,False,tests.yml
+962ae95cfd4098666d0c53a3952aff233c08ad09,Fail on error for commands used to regen,9d73ae9f73f9b6ca884e1112c93857360b6f3270,False,regen
+c720d137e80a707573c1c0817e0c960e0ab8e0bb,"Further updates from spec version 69.0.0
+
+- Added AWS::VoiceID
+- Previous commits fixed an issue with rekognition changes
+- Add missing updates from spec version 69.0.0 due to regen error",f6ca581eae9857fa20017623446f6a0357db18e3,False,"resources_aws.md, rekognition.py, sqs.py, ssm.py, rekognition.py, voiceid.py, wafv2.py"
+5ece185b6b9cc293c38a19adc67912ee6028a82f,Make spec download and isort fixups less verbose,1169f7512fd12a30b9b63365330c63a9970aa7bf,False,Makefile
+fbccf58c534a3897eda8e8bf9acadf4ef545948d,Fix issues with recent changes to SageMaker spec files (72.1.0),5ece185b6b9cc293c38a19adc67912ee6028a82f,False,sagemaker.py
+92b3f03c02372d4aa28a94da4105511bab02c952,"Add ""allExcept"" as a valid CloudFront::Cachepolicy QueryStringBehavior (Fixes #2060)",a536a22967fea0dc20e7be03bdb37f50e6f9e257,False,cloudfront.py
+721cb025d1ef39050c024bb72b7510ab8cb707ea,Fix broken regen due to LakeFormation changes,db5c294cbcce9b5b965655167968261d10ef742f,False,lakeformation.py
+8c1d1e994d91f4ff540615c7f70c53f26a457d55,Fix DataSync::LocationFSxONTAP.Protocol type duplication,721cb025d1ef39050c024bb72b7510ab8cb707ea,False,datasync.py
+ead9192b4c2acb21df917dfe116785343e9a59a6,Fix spec issue with Transfer::Server ProtocolDetails,8c1d1e994d91f4ff540615c7f70c53f26a457d55,False,transfer.py
+f68b3c44e351d0763150722d632aedb6f2eefe73,Allow CodeArtifact resources to accept policytypes (Fixes #2065),8421f2aecf0977622925b4a29fab1a434c71f78e,False,"codeartifact.py, codeartifact.py"
+d8ed8f04d17b0a44f0dce2c62d5392f6e4e07e95,"Pin pyright to version 1.1.261
+
+Issues showed up with pyright 1.1.262+ so pin the version
+to a know working version (1.1.261) for now.",f68b3c44e351d0763150722d632aedb6f2eefe73,False,"package-lock.json, package.json"
+f7687b5e3e9f1522c117a8f650bf9efc92f460c5,"Add support for list types and validator functions in GlobalsHelperFn type check (#2064)
+
+* fix(serverless): use AWSProperty as base class for *Globals (#2064)
+* test(serverless): property list types and function validators for globals (#2063)",d8ed8f04d17b0a44f0dce2c62d5392f6e4e07e95,False,"test_serverless.py, serverless.py"
+89daa9c983a9166aea76bd780e911d069ac83528,Provide better error message for missing property in generator,1b3ca2edcadba6c3a1959ad31fc2b84d98c55601,False,gen.py
+36550f71f4161b0b5c7af872b78dd1e7d96b788a,Fix issue in spec 82.0.0 with DynamoDB KeySchema Type,89daa9c983a9166aea76bd780e911d069ac83528,False,dynamodb.py
+c03cb952d0ac99723326fbc8c5c7fe2c42a4925b,Fix backup of spec files,91c85a0682276c93ec77df1cd1e3859e4d7dd4d9,False,"Makefile, dynamodb.py"
+0eb65826a12a0a185c76b3fd0b81ffa7ec911da8,"Revert ""Fix issue in spec 82.0.0 with DynamoDB KeySchema Type""
+
+This reverts commit 36550f71f4161b0b5c7af872b78dd1e7d96b788a.
+
+Note: this revert got committed in the previous commit. Creating
+this empty commit to track it.",c03cb952d0ac99723326fbc8c5c7fe2c42a4925b,False,
+5120e7a1061ca9a52347a2ce2766dfb01e6fff9a,"Fix first run of ""make spec"" where a spec file isn't initally there",0eb65826a12a0a185c76b3fd0b81ffa7ec911da8,False,Makefile
+ee2c1a76bd895848279ade85407b3b4c0f7f167b,Fix EC2 and MSK issues from the 91.0.0 spec,b20900e81527f6174ab7ad466665bfdd8d343240,False,"ec2.py, msk.py, ec2.py, msk.py"
+2205c3a50a07223b7c4268e332b27a5023312683,Sort available property keys for error message,608bb8c1093a62389f6fc379d0972a0bff133f04,False,gen.py
+aacd5a56ca8dcb60b093df635ed12e791a7a0f9b,Fix import issue with previous serverless.py change,04c8b6b584c885a00caa9c52ddee53c93c53991c,False,serverless.py
+85ab82b1750450bd7805f6b5c7329d53fd48f566,Fix jsonpatch for SageMaker::ModelPackage (spec file removed Tag),6499cd57991761857f893fa7d608c4f660f1946d,False,sagemaker.py
+b89dc72e6f42c17a2ee763b6d96141207b31a0d3,Fix regen script to be more specific on service names to exclude,0fcc4eea3b8caf4a0c14d5a50bec3b624d30fbf8,False,regen
+8d64e8cb310f58392e79e9f3a79ad423e2029c38,Fix CodeDeploy LoadBalancerInfo validator to include TargetGroupPairInfoList (fixes #2096),23de19a5402afb3ebf64bd7d667a05d9c3974cd2,False,codedeploy.py
+7393e3ee54205bb72388c58ba9b7915b16ffdc51,Fix lint issues,fd8c38a30481a91a9a5285afb4be7e3d6ce8a4d1,False,"quicksight.py, redshiftserverless.py, quicksight.py, redshiftserverless.py, route53.py, route53.py"
+3b921be5bd0d74422ebedd6d518c6f51e464c4a0,Fix tests related to GH-2116,149bdd7bb81533a28fb39d903bdbaf1645b6c89e,False,test_rds.py
+83bc3a6658b8ddcd2249e3a54243409e442a2973,"Enable AWS::Scheduler
+
+Enable Amazon EventBridge Schedule service with simple validation rule
+to prevent issues with TagMap.
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Scheduler.html",fb5e14ecc284ebd1a81735995adb27c73d9c5510,False,"test_scheduler.py, scheduler.py, scheduler.py"
+afcbfb4658d80b17a5a5b1e1ca56d23d54d59c64,Fix valid values used by validators (#2125),fed172342e45cc2ee993525b1e5931b71d4118dc,False,"test_appconfig.py, test_codebuild.py, test_dlm.py, appconfig.py, codebuild.py, dlm.py"
+4bf4102e0fd8ac66698f1e8076d635e0f45d8bc0,Fix black formatting,8276d09cd0ad8e6be1c0d13ceabd334cc437d33e,False,constants.py
+9c71e2f3f9b2a3447b34d11d3abf4a0757e7fc2f,"Fix generating constants based on recent use of typing.Final
+
+The use of typing.Final for constants required the generator to look for
+AnnAssign (Annotated Assignment) in addition to Assign AST tree nodes.",4bf4102e0fd8ac66698f1e8076d635e0f45d8bc0,False,gen.py
+05b253fec5cbd85c9abe9d4f86014ca1ef53b790,Add gp3 as valid RDS StorageType (Fixes #2123),9c71e2f3f9b2a3447b34d11d3abf4a0757e7fc2f,False,rds.py
+d15e8ca9943fd74764cd6fb7db121262c52613ea,Change Lambda ZipFile limit from 4096 to 4MB (Fixes #2119),05b253fec5cbd85c9abe9d4f86014ca1ef53b790,False,"test_awslambda.py, awslambda.py"
+fa205e357e7c006e4b5791299cfe2e1b60794257,"Allow gp3, st1, sc1 for EMR volume type (Fixes #2113)",d15e8ca9943fd74764cd6fb7db121262c52613ea,False,emr.py
+65b24be2f277643b744a29b2dc8080c2c8dedb90,Fixup for a new 114.0.0 spec - remove AppIntegrations patch,288962b790b12ee8ba035b65547a01290a930aa8,False,appintegrations.py
+aec18207370981d1e8d4bc1ba8ea51f71965b16c,Fix black formatting from #2142,c64c8d545d303cabd59199ebbc18fd1597943d51,False,rds.py
+574d2ebf2928052d13e9b8d9a279e09ca9b69650,Fix Macie jsonpatch for spec 119.0.0 changes,aec18207370981d1e8d4bc1ba8ea51f71965b16c,False,macie.py
+32a899c1b45a604002f058327e4b7baeb03bde74,"Automate fixing and generation of standalone types
+
+Most properties have a Properties dictionary but there seems to
+be a usage where a property entry just denotes a type specification.
+In the past this was worked around by lifting the type information
+into the right place. This change attempts to automate this process.",2fc7824312780f6e413a996610438380686414b0,False,gen.py
+e68851fcb2648f7a92c970fbd85facbf135abfde,Omit Connect::EvaluationForm for now due to recursion issues,d0a2c58a6cb2c1416b59a5b744ba28291aa945ef,False,connect.py
+8199a89e884adb16dfc8ef61b7479865d9367155,"Fix regex compile error in ec2.py (#2156)
+
+* fix compile() issue
+* Update test_ec2.py",aa7d453a718016d9fb9f25a55f63e42b542f02d9,False,"test_ec2.py, ec2.py"
+7f1c1e0273b38ea86f764a6d97ee28abbedf1a87,Fix black formatting,6cbb5049930f6d33caa5d717ac68a2aa940fcae5,False,cloudfront.py
+796671943f81e66924edb1520b359a50390e969e,Run regen to fixup recent changes,36328352e74d4bc65610c4d3ac28b01f20addb78,False,"ec2.py, efs.py"
+2c7f04f50d7688d7780d9a9b6c3e7539326a4562,"Fix up previous serverless ApiEvent Auth change
+
+Add:
+- backward compatibility
+- deprecation warning
+- tests",1b2ea5074577cac070f95425a9ad654d7be160d0,False,"test_serverless.py, serverless.py"
+b241a052743f8fb9390fc35ef02e7bc29decc1e4,TypeError() return the expected Class as last exception argument (#2147),2c7f04f50d7688d7780d9a9b6c3e7539326a4562,False,"iottwinmaker.py, wafv2.py"
+c52e9eb48635a2f6083556a4c2aef38a6bace31d,Fix TypeError formatting to reflect the true error (Fixes #2157),b241a052743f8fb9390fc35ef02e7bc29decc1e4,False,compat.py
+7bfabe11b0525e7d382bd0799685f7614a61ddb8,Fix black formatting,c52e9eb48635a2f6083556a4c2aef38a6bace31d,False,iottwinmaker.py
+73075ba2ce821ed18d74236a7f1070798d43714b,Fix RDS Validations (#2171),40e42d59b20e9725d0b8cc365d2f8639ce95d559,False,rds.py
+3362e724c251563d3ee4ef439d39463a42669b67,Fix incorrect backward compatibility for ReplicationConfiguration,1c1274bf83f05d8d1b82ef8e62b343b433035d80,False,"ecr.py, ecr.py"
+62f590e4a096bc9ed3b945a202b6fc12a6b4a94e,Update isort version to fix pip-shims error,3362e724c251563d3ee4ef439d39463a42669b67,False,".pre-commit-config.yaml, requirements-dev.txt"
+8b2f9caa0e9408a4ab8643ea8923822812caa3bc,RDS: allow AllocatedStorage to be a Ref (Fixes #2176),62f590e4a096bc9ed3b945a202b6fc12a6b4a94e,False,"test_rds.py, rds.py"
+b412e14437fdc64b54b268fa0a0d32ac8cc07be8,Fixup Events patch due to removal of AWS::Events::Rule.Tag,ae38c160bb6c48eae4e15df8944c9aa560a37b95,False,events.py
+8514962f0398ffaae103418911668b0f6c92924a,Reduce error output when encountering a jsonpatch error,4e065c2aa642fcf0e4459fdcb6650b79be4a3bd5,False,gen.py
+8cf2140ca93870dce5ed28c318f1d284f7d95bbf,"Collect all the service items before modifying the service
+
+This prevents a ""RuntimeError: dictionary changed size during iteration""
+error when pruning the tag entries.",8514962f0398ffaae103418911668b0f6c92924a,False,gen.py
+3fa178164487d9e7c5622bc5abf641d24adbc05c,Fixup Events patch due to removal of AWS::Events::EventBus.TagEntry,8cf2140ca93870dce5ed28c318f1d284f7d95bbf,False,events.py
+38e42cf6beb0930c063ac917dd2258c881150848,Fix Parameters.validate incorrect validate for CommaDelimitedList (#2191),86a58bd242ed9b631f35324e2a21da5d95abd54e,False,"test_parameters.py, __init__.py"
+d3ec594daf9be9ac9b6aac42692c51ca317cd805,Fix lint error from a previous commit to gen.py,583367905c928cda71f18831c0804abb1465ef5b,False,gen.py
+107b5e6c3c4bdbf9f2981e849ae20ec08b629124,Add new AWS services to resource doc and fix some trailing parens,0b2d22da56a4a44f00f3d1bdf27d97a8c4944f24,False,resources_aws.md
+e779387893e5dd0c1d4915baf44dce0963d539de,"Fix EC2::TransitGatewayMulticastDomain.Options conflict
+
+Use MulticastDomainOptions for EC2::TransitGatewayMulticastDomain.Options.",107b5e6c3c4bdbf9f2981e849ae20ec08b629124,False,"ec2.py, ec2.py"
+24adf62d35da064f4f0d137139ed86ff74e6cded,"Fix __eq__ protocol (#2197)
+
+If it is not known how to compare objects, `__eq__` should return
+NotImplemented instead of False. That way the right side object of the
+comparison might possibly take over.",e1d79a38197ee7654690a24f8922239da19a7c68,False,"test_basic.py, test_template.py, __init__.py"
+55599ec931b9830119d87a6ec13fed4e5f8024a4,Fix formatting,24adf62d35da064f4f0d137139ed86ff74e6cded,False,"test_basic.py, test_template.py"
+cfbd1d6eee88fb25a057584b7cf7339674005201,"Object equality fixes (#2200)
+
+- Add __hash__ to the Parameter class
+- Disable validation when doing BaseAWSObject object comparison __eq__",55599ec931b9830119d87a6ec13fed4e5f8024a4,False,"test_basic.py, __init__.py"
+d015ae2435e952c11e8a6778c19b02f5b6745c4a,Add new OpenSearch instance names to constants.py (Fixes: #2198) (#2199),cfbd1d6eee88fb25a057584b7cf7339674005201,False,constants.py
+68f07e5418c78dce413e02f09e80b361d3d96231,"Move __hash__ to BaseAWSObject to support objects in dictionaries (Fixes #2204)
+
+PR #2182 added support for troposphere object comparison. Upon release
+there was an issue (#2196) where Parameter was not hashable and fixed in
+PR #2200. This fix was a minimal one just for Parameter but PR #2204
+showed use cases for the base object to be hashable as well.",6f4f68efc2f0870ecae3fc6801e9dc645dd1a861,False,"test_basic.py, __init__.py"
+6172ea9d686787a7d0610f6c2f8bf2d5f049a4a3,"Remove Tags from EventBridge.Rule (Fixes #2203)
+
+Tags was added to EventBridge.Rule in PR #2158 but it is not
+implemented in CloudFormation and causes a rollback when used.",1e58cd07c3b5435245c97e6851c7bd8550dd1321,False,"events.py, events.py"
+ae23bee1b97d6ead86d66214c80091caa49e0e3b,"Prefer ECS::Service.LoadBalancer (Fixes #2206)
+
+ECS::TaskSet.LoadBalancer was being emitted but ECS::Service.LoadBalancer
+is a superset. This makes the minimal change to keep backward compatibility
+(although LoadBalancerName should not be used with TaskSet).",bcc7b50937735f00aab296f0bbf34d5cedcf75ea,False,"ecs.py, ecs.py"
+f4c07c9ebea3c35f5fc2e07cf01286e93630dcc7,"Updates from spec version 152.0.0
+
+This change contains numerous patches to AWS::Batch to prevent backward
+compatibility issues due to the property renames in 152.0.0. This will
+be revisted at the next major version change.",97062fee920e44530136f9a96c5c02baf279857a,False,"batch.py, appsync.py, batch.py, codecommit.py, ec2.py, ecs.py, eks.py, emrserverless.py, imagebuilder.py, iot.py, networkfirewall.py, pinpoint.py"
+f502f26e242296e2baae5b8da63085d585beb6b6,Allow EVENT for Glue::Trigger.Type (Fixes #2215),219b491798e31fd0736818a0a7fa0611fd180a3f,False,glue.py
+369c06306b38f90e394612cdbd0bd49497d9f9aa,"Fix Batch patches for spec version 155.0.0
+
+All of the backward compatibility patches were removed due to
+renaming in spec version 155.0.0",9bb44aba7c70d2a09b0e1934defd0876d5530472,False,batch.py
+69529599ea3943b6f8a17354d58eb96c555a9ba4,Fix valid Synthetics canary runtime versions (#2221),a7a6c8a1a84f740f5cb70f51e233300865eecaae,False,synthetics.py
+6b305cd89a2826ccfcb14bc90783555bb7ab4439,Fix RDS validator for gp3 iops/allocated_storage ratio check (#2225),459609ab3a91859bb65f862fced5d3e0a521dff9,False,"test_rds.py, rds.py"
+bce7682d5a1554d9a16ed565b477563d728300d9,Fix lint issue in recent change to test_rds.py,6b305cd89a2826ccfcb14bc90783555bb7ab4439,False,test_rds.py
+39e9a71220779e397997790598feb38a6aba0207,Fix Serverless MQEvent SourceAccessConfigurations property type (#2236),cf37e7d96de77b82d12967ffb317354ffce5302e,False,serverless.py
+91f84875fdf4a43a7b74fea5b1b7ce5744fcc77d,"Update glue ConnectionType validatorto allow SNOWFLAKE (#2247)
+
+While this is not formally released yet, it appears to work in practice.
+
+https://github.com/aws-cloudformation/cloudformation-coverage-roadmap/issues/1810",9176d15de296aa3f87ca7d594cbfa6c5d6e144e7,False,glue.py
+b947a39c1528f9404d7aabf5e3b6ed1a70e57abd,"Updates from spec version 180.0.0 (updated)
+
+Spec version 180.0.0 was updated around 2024-07-12. This change
+also resolves some conflicts in AWS::SES that came in this update.",93f766771b38bea629a7cf78a3a15c959805c305,False,"ses.py, cloudformation.py, codepipeline.py, deadline.py, ec2.py, entityresolution.py, ses.py, workspacesthinclient.py"
+eab6609d1f88a9818e89a82015a62f632d6f93a3,"Updates from spec version 184.0.0 (#2263)
+
+This includes 2 patches:
+- Rename CodePipeline::Pipeline.RuleDeclaration InputArtifacts due
+  to backward compatibility
+- Remove NetworkManager::CoreNetwork.CoreNetworkNetworkFunctionGroup due
+  to Name Error (ordering of unseen properties) with Segments property",40028ad6115fe33e894bd422c69ae11a7dfecd0a,False,"codepipeline.py, networkmanager.py, appintegrations.py, awslambda.py, bedrock.py, codebuild.py, codepipeline.py, cognito.py, deadline.py, ec2.py, ecs.py, entityresolution.py, firehose.py, glue.py, iotfleetwise.py, ivs.py, medialive.py, msk.py, networkmanager.py, osis.py, quicksight.py, redshift.py, rolesanywhere.py, route53resolver.py, sagemaker.py, securityhub.py, ses.py, systemsmanagersap.py"
+dbb0baf88a91d01083e03dc9699327e3e4bf2aa8,Fix Chatbot::SlackChannelConfiguration LoggingLevel validation (Fixes #2264),55ac0b68adb456377b4f4c082b9b671cb1eb345b,False,chatbot.py
+8ce1bf6ba6a1903f59aabb619d18900b68eb1088,EC2: Validate prefix list IDs as route destinations (#2280),150968de948ad54781a23a846a10621b14827d45,False,ec2.py
+e8e4aabab179812b3ca596491350441fcb23895c,"Fix lint errors in examples/EMR_Cluster.py
+
+pyflakes added a new error for unused globals",66818fb526bff26a0cf9a6870c16ad0cd995a5a5,False,EMR_Cluster.py
+f99545c5787b285757c2c666d380c9cc6f4c9819,"Work around recursive definition in AWS::Budgets
+
+In spec 197.0.0, AWS::Budgets::Budget.Expression was introduced
+which had references to itself. The fix uses object instead.",ae180cbcf4cb0fdc324e5821f785f89ccaae67fb,False,budgets.py
+4c2d3d27a0999382695ce09d29a20c838308e21d,"Fix controltower parameters value types (#2314)
+
+* Add patch to fix types on controltower Parameter Value fields, which should be String and `array, string, number, object, or boolean` respectively according to AWS documentation
+* Add example and unit test for controltower
+* Update patched controltower.py
+* Fix typo in scripts/gen.py",a9a2d7c4d5ebdf4beb2cc5a2cbfe5587da69d486,False,"ControlTower.py, gen.py, controltower.py, ControlTower.template, test_controltower.py, controltower.py"
+2c5567234f2b73e4617f70879f9950e957f44998,Fix waf_action_type validator type annotation,2fa6aa8193b0e9a7d8de66d27859a02fc88be41e,False,__init__.py
+404dd5283b738eec69d19b86cdf0d432e44e92a8,"Fix code gen to ignore object in PropsDictType
+
+To prevent recusrsion issues ""object"" is patched in as a
+generic replacement type. This change prefers to ignore object
+for type checking rather than adding object to PropsDictType.",2c5567234f2b73e4617f70879f9950e957f44998,False,"gen.py, bedrock.py, budgets.py, controltower.py, qbusiness.py"
+95750efc28489bf222c42296d3619afe11c4731c,"Fix recursive definition in AWS::IoTSiteWise
+
+Work around recursive ItemType introduced in spec 208.0.0.",59bc6a5fb0679acbce0a33ceeb652257a50fdaa8,False,iotsitewise.py
