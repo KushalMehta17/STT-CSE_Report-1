@@ -1,42 +1,47 @@
 from pydriller import Repository
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
-# Load model and tokenizer
-model_name = "mamiksik/CommitPredictorT5"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+# Set the device to GPU 
+device = "cuda" if torch.cuda.is_available() else "cpu"
+print(f"Using device: {device}")
 
-rectifier_prompt = """
-You are an expert software engineer reviewing a commit. Your task is to write the perfect commit message for a single file change.
-
-Original commit message (may be vague or for multiple files): 
-"{original_message}"
-
-Code changes for this specific file:
-{diff_text}
-
-Instructions:
-1. If the original message is already excellent and specific to this change, use it.
-2. If it is vague, incorrect, or too general, rewrite it to be precise and descriptive.
-3. The new message must clearly describe what changed in this file and why.
-4. Be concise but specific. Use imperative mood (e.g., "Fix...", "Add...").
-
-Write the perfect commit message for this file change:
-"""
+model_name = "deepseek-ai/deepseek-coder-6.7b-instruct"
+tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True).to(device)
 
 def generate_rectified_message(original_msg, diff_text, tokenizer, model):
 
-    # Format the prompt with the actual original message and diff
-    input_text = rectifier_prompt.format(original_message=original_msg, diff_text=diff_text)
+    messages = [
+        {"role": "system", "content": "You are an expert software engineer. Your task is to write perfect, concise commit messages for individual file changes."},
+        {"role": "user", "content": f"""
+        Original commit message: \"{original_msg}\"
+
+        Code changes for a specific file:
+        {diff_text}
+
+        Please rewrite the commit message to be specific to these changes. If the original message is good, improve it slightly. If it is vague, replace it completely.
+        Focus on what was changed and why in this specific file. Use imperative mood and be concise.
+
+        Output ONLY the rewritten commit message with no additional commentary:
+        """}
+        ]
     
-    # Generate the rectified message with the LLM
-    input_ids = tokenizer.encode(input_text, return_tensors="pt", max_length=1024, truncation=True)
-    generated_ids = model.generate(input_ids, max_length=128)
-    rectified_msg = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+    
+    input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    inputs = tokenizer(input_text, return_tensors="pt", truncation=True, max_length=4096).to(device)
+    
+    # Generate the response
+    with torch.no_grad():
+        outputs = model.generate(**inputs, max_new_tokens=128, do_sample=True, temperature=0.7, top_p=0.9, pad_token_id=tokenizer.eos_token_id)
+    
+    # Decode the generated text
+    generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    rectified_msg = generated_text.split("assistant\n")[-1].strip()
     
     return rectified_msg
+
     
 def main():
 
